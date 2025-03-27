@@ -35,7 +35,7 @@ const Work = () => {
           <h4 className="text-3xl md:text-5xl font-bold text-black text-center mt-10 mb-10">
             3 Easy steps to get interior design
           </h4>
-          <p className="text-center text-lg lg:max-w-[200px] md:max-w-none mb-10">
+          <p className="text-center text-md lg:max-w-[200px] md:max-w-none mb-10">
             The layout of your kitchen varies from one design to another.
           </p>
         </div>
@@ -91,7 +91,7 @@ const Work = () => {
                     </h3>
                     <div className={`overflow-hidden ${hoveredItem === index ? "h-[3.5rem]" : "h-[0rem]"}`}>
                       <p
-                        className={`text-base md:text-lg transition-all duration-500 ${
+                        className={`text-base md:text-md transition-all duration-500 ${
                           hoveredItem === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                         }`}
                       >

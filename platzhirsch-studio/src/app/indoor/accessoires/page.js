@@ -4,13 +4,10 @@ import AlternatingLayoutGrid from "@/components/Reusable/itemsgrid";
 
 export default function Home() {
   const images = [
-    "/Images/Outdoor/bannerImage1.jpg",
-    "/Images/Outdoor/bannerImage2.jpg",
-    "/Images/Outdoor/bannerImage3.jpg",
-    "/Images/Outdoor/bannerImage4.jpg",
-    "/Images/Outdoor/bannerImage5.jpg",
+    "/Images/Accessories/bannerImageAccessories1.jpg",
+    "/Images/Accessories/bannerImageAccessories2.jpg",
+    "/Images/Accessories/bannerImageAccessories3.jpg",
   ];
-
   return (
     <div>
       <BannerSlider images={images} />

@@ -13,7 +13,7 @@ const OutdoorLivingSection = () => {
             Extend Your Living Room <span className="text-[var(--primary)]">– Outdoors!</span>
           </h2>
 
-          <div className="space-y-6 text-lg [var(--secondary)]/80">
+          <div className="space-y-6 text-md [var(--secondary)]/80">
             <p>
               And outside, that is. How? With our weather-resistant, high-tech outdoor furniture and accessories.
               Because we want to be able to enjoy our outdoor space not just in the summer, but on beautiful days in

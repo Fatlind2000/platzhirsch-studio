@@ -15,7 +15,7 @@ export default function Choice() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 py-40 ">
-        <h1 className={`text-lg mb-8 text-[var(--primary)] text-center uppercase`}>IHRE BESTE WAHL</h1>
+        <h2 className={`text-lg mb-8 text-[var(--primary)] text-center uppercase`}>IHRE BESTE WAHL</h2>
         <p className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--ternary)] text-center mb-10 max-w-2xl">
           Lassen Sie uns Ihr neues Traumprojekt starten
         </p>

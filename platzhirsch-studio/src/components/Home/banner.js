@@ -49,7 +49,7 @@ const ImageSlider = () => {
               <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[800px] xl:text-7xl">
                 Design Your Kitchen with the Experts
               </h1>
-              <p className="text-white text-lg md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px]">
+              <p className="text-white text-md md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px]">
                 Kitchens should be designed around whats truly important: family, food, and life.
               </p>
               <button className="bg-white text-black px-4 py-2 rounded-lg hover:bg-amber-400 mt-10">Get Started</button>
@@ -71,7 +71,7 @@ const ImageSlider = () => {
               <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[800px] xl:text-7xl">
                 Design Your Kitchen with the Experts
               </h1>
-              <p className="text-white text-lg md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px]">
+              <p className="text-white text-md md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px]">
                 Kitchens should be designed around whats truly important: family, food, and life.
               </p>
               <button className="bg-white text-black px-4 py-2 rounded-lg hover:bg-amber-400 mt-10">Get Started</button>
@@ -93,7 +93,7 @@ const ImageSlider = () => {
               <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[800px] xl:text-7xl">
                 Design Your Kitchen with the Experts
               </h1>
-              <p className="text-white text-lg md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px]">
+              <p className="text-white text-md md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px]">
                 Kitchens should be designed around whats truly important: family, food, and life.
               </p>
               <button className="bg-white text-black px-4 py-2 rounded-lg hover:bg-amber-400 mt-10">Get Started</button>

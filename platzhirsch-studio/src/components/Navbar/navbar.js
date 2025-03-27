@@ -50,7 +50,7 @@ const Navbar = () => {
       name: "INDOOR",
       subItems: [
         { name: "WOHNEN", href: "/indoor/wohnen" },
-        { name: "KÜCHE", href: "/indoor/kueche" },
+        { name: "KÜCHE", href: "/indoor/kuche" },
         { name: "ARBEITEN", href: "/indoor/arbeiten" },
         { name: "LICHT", href: "/indoor/licht" },
         { name: "ACCESSOIRES", href: "/indoor/accessoires" },

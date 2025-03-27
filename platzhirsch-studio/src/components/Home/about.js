@@ -87,7 +87,7 @@ const About = () => {
               <Slider {...settings}>
                 {/* Slide 1 */}
                 <div className="h-64 md:h-96 flex items-center justify-center">
-                  <p className="text-black text-lg text-center font-medium text-gray-600">
+                  <p className="text-black text-md text-center font-medium text-gray-600">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                     industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
                     and scrambled it to make a type specimen book.
@@ -98,7 +98,7 @@ const About = () => {
 
                 {/* Slide 2 */}
                 <div className="h-64 md:h-96  flex items-center justify-center">
-                  <p className="text-black text-lg text-center font-medium text-gray-600">
+                  <p className="text-black text-md text-center font-medium text-gray-600">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                     industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
                     and scrambled it to make a type specimen book.
@@ -109,7 +109,7 @@ const About = () => {
 
                 {/* Slide 3 */}
                 <div className="h-64 md:h-96 flex items-center justify-center">
-                  <p className="text-black text-lg text-center font-medium text-gray-600">
+                  <p className="text-black text-md text-center font-medium text-gray-600">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                     industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
                     and scrambled it to make a type specimen book.
@@ -128,7 +128,7 @@ const About = () => {
           <h4 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-10 mb-10">
             Creative solutions by professional designers
           </h4>
-          <p className="text-center text-lg text-[var(--secondary)]">
+          <p className="text-center text-ms text-[var(--secondary)]">
             Your kitchen is an expression of who you are, and its design should match your lifestyle. Whether you have
             traditional tastes or desire a modern feel, we can design your dream kitchen to suit any purpose.
           </p>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+"use client";
+import { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -23,7 +24,7 @@ const PrevArrow = ({ onClick }) => (
   </div>
 );
 
-const ImageSlider = () => {
+const ImageSlider = ({ images }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
@@ -39,7 +40,7 @@ const ImageSlider = () => {
       <div
         style={{
           position: "absolute",
-          bottom: "20px",
+          bottom: "40px",
         }}
         className="absolute inset-0 flex items-center justify-center z-10 hover:pointer w-full"
       >
@@ -65,37 +66,19 @@ const ImageSlider = () => {
   };
 
   return (
-    <div className="slider-container w-full h-dvh md:h-200 relative">
+    <div className="slider-container w-full relative">
       <Slider {...settings}>
         {/* Slide 1 */}
-        <div className="slider-slide bg-cover bg-center w-full h-dvh md:h-200">
-          <div
-            className="relative w-full h-dvh bg-cover bg-center"
-            style={{ backgroundImage: "url('/Images/Home/grey-and-brown-combo-style-room-1.jpg')" }}
-          >
-            <div className="absolute inset-0 bg-black opacity-50"></div>
+        {images.map((image, index) => (
+          <div className="slider-slide bg-cover bg-center w-full">
+            <div
+              className="relative w-full h-200 sm:max-h-[50dvh] md:max-h-180 bg-cover bg-center"
+              style={{ backgroundImage: `url('${image}')` }}
+            >
+              <div className="absolute inset-0 bg-black opacity-50"></div>
+            </div>
           </div>
-        </div>
-
-        {/* Slide 2 */}
-        <div className="slider-slide bg-cover bg-center w-full h-dvh md:h-200">
-          <div
-            className="relative w-full h-dvh bg-cover bg-center"
-            style={{ backgroundImage: "url('/Images/Home/grey-and-brown-combo-style-room-1.jpg')" }}
-          >
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-          </div>
-        </div>
-
-        {/* Slide 3 */}
-        <div className="slider-slide bg-cover bg-center w-full h-dvh md:h-200">
-          <div
-            className="relative w-full h-dvh bg-cover bg-center"
-            style={{ backgroundImage: "url('/Images/Home/download.jpg')" }}
-          >
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-          </div>
-        </div>
+        ))}
       </Slider>
     </div>
   );
