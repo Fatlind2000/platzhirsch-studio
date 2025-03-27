@@ -24,3 +24,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+:root {
+  --primary: #daa14c;
+  --secondary: #30373e;
+  --ternary: #ffffff;
+  --quaternary: #000000;
+  --quinary: #303030
+}

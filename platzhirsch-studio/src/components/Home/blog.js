@@ -39,8 +39,10 @@ const BlogSection = () => {
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header */}
       <div className="text-center mb-12 flex flex-col items-center">
-        <h2 className="text-lg mb-8 text-amber-400 text-center uppercase">Our Blog</h2>
-        <p className="text-3xl md:text-4xl mb-8 max-w-2xl font-bold text-center">Neueste Nachrichten</p>
+        <h2 className="text-lg mb-8 text-[var(--primary)] text-center uppercase">Our Blog</h2>
+        <p className="text-3xl md:text-4xl mb-8 max-w-2xl font-bold text-center text-[var(--quinary)]">
+          Neueste Nachrichten
+        </p>
       </div>
 
       {/* Desktop Layout (featured + column) */}
@@ -84,13 +86,13 @@ const BlogCard = ({ post, isCompact = false }) => {
 
       {/* Content */}
       <div className={`p-6 flex flex-col ${isCompact ? "w-2/3" : ""}`}>
-        <h3 className={`${isCompact ? "text-lg" : "text-xl md:text-2xl"} font-bold text-gray-900 mb-3`}>
+        <h3 className={`${isCompact ? "text-lg" : "text-xl md:text-2xl"} font-bold text-[var(--quinary)] mb-3`}>
           {post.title}
         </h3>
-        <p className="text-gray-600 mb-4 flex-grow">{post.description}</p>
+        <p className="text-[var(--secondary)] mb-4 flex-grow">{post.description}</p>
         <Link
           href={`/blog/${post.id}`}
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium mt-auto"
+          className="inline-flex items-center text-[var(--secondary)] hover:text-[var(--primary)] font-medium mt-auto"
         >
           Read More
           <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

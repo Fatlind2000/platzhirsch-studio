@@ -1,8 +1,20 @@
 "use client";
 import { useState, useEffect } from "react";
-import { FiMenu, FiX, FiChevronDown, FiChevronUp, FiPhone, FiMapPin, FiClock } from "react-icons/fi";
+import {
+  FiMenu,
+  FiX,
+  FiChevronDown,
+  FiChevronUp,
+  FiPhone,
+  FiMapPin,
+  FiClock,
+  FiFacebook,
+  FiInstagram,
+  FiTwitter,
+} from "react-icons/fi";
 import Link from "next/link";
 import Image from "next/image";
+import { TfiPinterest } from "react-icons/tfi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +61,6 @@ const Navbar = () => {
     {
       name: "ÜBER UNS",
       subItems: [
-        { name: "AUSSTELLUNG", href: "/ueber-uns/ausstellung" },
         { name: "MARKEN", href: "/ueber-uns/marken" },
         { name: "TEAM", href: "/ueber-uns/team" },
         { name: "KARRIERE", href: "/ueber-uns/karriere" },
@@ -65,17 +76,21 @@ const Navbar = () => {
   return (
     <header className="fixed w-full z-50">
       {/* Main Navigation */}
-      <nav className={`w-full bg-[#16222b] py-4`}>
+      <nav className={`w-full bg-[var(--secondary)] py-4`}>
         <div className="container mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center h-16 w-40 relative">
-            <Image src="/Images/Navbar/Logo.png" alt="Logo" fill className="object-contain object-left" />
+            <Image
+              src="/Images/Navbar/Logo.png"
+              alt="Logo"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              fill
+              className="object-contain object-left"
+            />
           </Link>
 
           {/* Desktop Navigation */}
           <div>
-            {/* Contact Info Bar */}
-
             <div className="hidden lg:flex items-center space-x-8 relative">
               {navItems.map((item) => (
                 <div key={item.name} className="relative group">
@@ -83,7 +98,7 @@ const Navbar = () => {
                     <>
                       <button
                         onMouseEnter={() => toggleDropdown(item.name)}
-                        className="flex items-center text-white hover:text-amber-500 transition uppercase text-sm"
+                        className="flex items-center text-[var(--ternary)] hover:text-[var(--primary)] transition uppercase text-sm"
                       >
                         {item.name}
                         {openDropdown === item.name ? (
@@ -94,14 +109,14 @@ const Navbar = () => {
                       </button>
                       {openDropdown === item.name && (
                         <div
-                          className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50"
+                          className="absolute left-0 mt-6 w-48 bg-[var(--ternary)] rounded-md shadow-lg py-1 z-50"
                           onMouseLeave={() => setOpenDropdown(null)}
                         >
                           {item.subItems.map((subItem) => (
                             <Link
                               key={subItem.name}
                               href={subItem.href}
-                              className="block px-4 py-2 text-gray-700 hover:bg-amber-50 hover:text-amber-600 uppercase text-sm"
+                              className="block px-4 py-2 text-gray-700 hover:bg-[var(--primary)]/10 hover:text-[var(--secondary)] uppercase text-sm"
                               onClick={() => setOpenDropdown(null)}
                             >
                               {subItem.name}
@@ -111,7 +126,10 @@ const Navbar = () => {
                       )}
                     </>
                   ) : (
-                    <Link href={item.href} className="text-white hover:text-amber-500 transition uppercase text-sm">
+                    <Link
+                      href={item.href}
+                      className="text-[var(--ternary)] hover:text-[var(--primary)] transition uppercase text-sm"
+                    >
                       {item.name}
                     </Link>
                   )}
@@ -121,7 +139,7 @@ const Navbar = () => {
               {/* Studio Info Panel Trigger */}
               <button
                 onClick={() => setShowStudioInfo(!showStudioInfo)}
-                className="text-white hover:text-amber-500 transition uppercase text-lg"
+                className="text-[var(--ternary)] hover:text-[var(--primary)] transition uppercase text-2xl"
               >
                 <FiMenu />
               </button>
@@ -139,14 +157,17 @@ const Navbar = () => {
 
         {/* Studio Info Panel (Desktop) */}
         {showStudioInfo && (
-          <div className="hidden lg:block fixed inset-0 bg-black/20 z-40" onClick={() => setShowStudioInfo(false)}>
+          <div
+            className="hidden lg:block fixed inset-0 bg-[var(--quaternary)]/20 z-40 "
+            onClick={() => setShowStudioInfo(false)}
+          >
             <div
-              className="absolute right-0 top-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300"
+              className=" absolute right-0 top-0 h-full w-100 bg-[var(--secondary)] shadow-lg transform transition-transform duration-300 "
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-end p-4">
                 <button
-                  className="text-gray-800 rounded p-1 focus:outline-none"
+                  className="text-[var(--ternary)] rounded p-1 focus:outline-none"
                   onClick={() => setShowStudioInfo(false)}
                   aria-label="Close studio info"
                 >
@@ -154,22 +175,77 @@ const Navbar = () => {
                 </button>
               </div>
 
-              <div className="p-4">
-                <h3 className="font-bold text-gray-800 mb-4">Unser Studio</h3>
-                <div className="flex items-start mb-3">
-                  <FiMapPin className="text-amber-500 mt-1 mr-2" />
-                  <p className="text-gray-600 text-sm">Musterstraße 123, 12345 Berlin</p>
+              <div className="px-15 overflow-auto">
+                <div className="relative h-15 w-full flex items-start justify-start mb-10 ">
+                  <Image
+                    src="/Images/Navbar/Logo.png"
+                    alt="Logo"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    fill
+                    className="object-contain flex items-start justify-start"
+                  />
                 </div>
-                <div className="flex items-start mb-3">
-                  <FiClock className="text-amber-500 mt-1 mr-2" />
+
+                <div className="flex items-start mb-10">
+                  <p className="text-[var(--ternary)] text-2xl">Creative solutions by professional designers</p>
+                </div>
+
+                <div className="flex items-start mb-10">
+                  <FiMapPin className="text-[var(--primary)] mt-1 mr-2" />
+                  <p className="text-[var(--ternary)] text-md">Musterstraße 123, 12345 Berlin</p>
+                </div>
+
+                <div className="flex items-start mb-10">
+                  <FiClock className="text-[var(--primary)] mt-1 mr-2" />
                   <div>
-                    <p className="text-gray-600 text-sm">Mo-Fr: 9:00 - 18:00</p>
-                    <p className="text-gray-600 text-sm">Sa: 10:00 - 14:00</p>
+                    <p className="text-[var(--ternary)] text-md">Mo-Fr: 9:00 - 18:00</p>
+                    <p className="text-[var(--ternary)] text-md">Sa: 10:00 - 14:00</p>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <FiPhone className="text-amber-500 mt-1 mr-2" />
-                  <p className="text-gray-600 text-sm">+49 30 1234567</p>
+
+                <div className="flex items-start mb-10">
+                  <FiPhone className="text-[var(--primary)] mt-1 mr-2" />
+                  <p className="text-[var(--ternary)] text-md">+49 30 1234567</p>
+                </div>
+
+                {/* Social Media Icons */}
+                <div className="flex space-x-4 mb-10">
+                  <a href="#" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
+                    <FiFacebook className="w-6 h-6" />
+                  </a>
+                  <a href="#" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
+                    <FiInstagram className="w-6 h-6" />
+                  </a>
+                  <a href="#" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
+                    <FiTwitter className="w-6 h-6" />
+                  </a>
+                  <a href="#" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
+                    <TfiPinterest className="w-6 h-6" />
+                  </a>
+                </div>
+
+                {/* Image Grid - 3 per row */}
+                <div className="grid grid-cols-3 gap-4 mb-10">
+                  {["download.jpg", "download.jpg", "download.jpg", "download.jpg", "download.jpg", "download.jpg"].map(
+                    (item, index) => (
+                      <div key={index} className="relative aspect-square">
+                        <Image
+                          src={`/Images/Home/${item}`} // Adjust path as needed
+                          alt={`Gallery image ${item}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover rounded-lg"
+                        />
+                      </div>
+                    )
+                  )}
+                </div>
+
+                {/* Footer Text */}
+                <div className="border-t border-[var(--ternary)] pt-6">
+                  <p className="text-[var(--ternary)] text-sm text-center">
+                    © {new Date().getFullYear()} It Engineers. All rights reserved.
+                  </p>
                 </div>
               </div>
             </div>
@@ -180,12 +256,12 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden fixed inset-0 bg-black/20 z-40" onClick={closeMobileMenu}>
             <div
-              className="absolute right-0 top-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300"
+              className="absolute right-0 top-0 h-full w-64 bg-[var(--ternary)] shadow-lg transform transition-transform duration-300"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-end p-4">
                 <button
-                  className="text-gray-800 rounded p-1 focus:outline-none"
+                  className="text-[var(--ternary)] rounded p-1 focus:outline-none"
                   onClick={closeMobileMenu}
                   aria-label="Close menu"
                 >
@@ -200,7 +276,7 @@ const Navbar = () => {
                       <>
                         <button
                           onClick={() => toggleDropdown(item.name)}
-                          className="flex items-center justify-between w-full text-gray-800 py-2 uppercase text-sm"
+                          className="flex items-center justify-between w-full text-[var(--secondary)]/90 hover:text-[var(--primary)] py-2 uppercase text-sm"
                         >
                           {item.name}
                           {openDropdown === item.name ? (
@@ -215,7 +291,7 @@ const Navbar = () => {
                               <Link
                                 key={subItem.name}
                                 href={subItem.href}
-                                className="block py-2 text-gray-600 hover:text-amber-500 uppercase text-sm"
+                                className="block py-2 text-[var(--secondary)]/90 hover:text-[var(--primary)] uppercase text-sm"
                                 onClick={closeMobileMenu}
                               >
                                 {subItem.name}
@@ -227,7 +303,7 @@ const Navbar = () => {
                     ) : (
                       <Link
                         href={item.href}
-                        className="block py-2 text-gray-800 hover:text-amber-500 uppercase text-sm"
+                        className="block py-2 text-[var(--secondary)] hover:text-[var(--primary)] uppercase text-sm"
                         onClick={closeMobileMenu}
                       >
                         {item.name}

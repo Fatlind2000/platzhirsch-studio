@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import image1 from "../../../public/Images/Home/download.jpg";
 import Signature from "../../../public/Images/Home/home6_png-2.png";
@@ -64,45 +65,57 @@ const About = () => {
         {/* First Column */}
         <div className=" md:flex-col sm:flex-col-reverse w-full md:w-1/2 p-4 rounded-lg flex flex-col justify-center items-center ">
           <div className="relative h-150 w-full">
-            <Image src={image1} alt="About our company" fill className="object-cover rounded-lg" />
+            <Image
+              src={image1}
+              alt="About our company"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover rounded-lg"
+            />
           </div>
           <div className="w-full">
             <div className="relative h-20 w-full my-10">
-              <Image src={Signature} alt="About our company" fill className="object-contain rounded-lg" />
+              <Image
+                src={Signature}
+                alt="About our company"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-contain rounded-lg"
+              />
             </div>
             <div className="w-full max-w-4xl mx-auto">
               <Slider {...settings}>
                 {/* Slide 1 */}
                 <div className="h-64 md:h-96 flex items-center justify-center">
-                  <p className="text-black text-lg text-center font-halfbold text-gray-600">
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book."
+                  <p className="text-black text-lg text-center font-medium text-gray-600">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book.
                   </p>
-                  <p className="font-bold text-md text-center text-black mt-10"> Joshua Keith</p>
-                  <p className="text-black text-sm text-center font-halfbold text-gray-600 mt-3">Fresh Design</p>
+                  <p className="font-bold text-md text-center text-[var(--secondary)] mt-10"> Joshua Keith</p>
+                  <p className="text-black text-sm text-center font-medium text-gray-600 mt-3">Fresh Design</p>
                 </div>
 
                 {/* Slide 2 */}
                 <div className="h-64 md:h-96  flex items-center justify-center">
-                  <p className="text-black text-lg text-center font-halfbold text-gray-600">
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book."
+                  <p className="text-black text-lg text-center font-medium text-gray-600">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book.
                   </p>
-                  <p className="font-bold text-md text-center text-black mt-10"> Sharon Keith</p>
-                  <p className="text-black text-sm text-center font-halfbold text-gray-600 mt-3">Fresh Design</p>
+                  <p className="font-bold text-md text-center text-[var(--secondary)] mt-10"> Sharon Keith</p>
+                  <p className="text-black text-sm text-center font-medium text-gray-600 mt-3">Fresh Design</p>
                 </div>
 
                 {/* Slide 3 */}
                 <div className="h-64 md:h-96 flex items-center justify-center">
-                  <p className="text-black text-lg text-center font-halfbold text-gray-600">
-                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book."
+                  <p className="text-black text-lg text-center font-medium text-gray-600">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+                    and scrambled it to make a type specimen book.
                   </p>
-                  <p className="font-bold text-md text-center text-black mt-10"> Sharon Gunther</p>
-                  <p className="text-black text-sm text-center font-halfbold text-gray-600 mt-3">Fresh Design</p>
+                  <p className="font-bold text-md text-center text-[var(--secondary)] mt-10"> Sharon Gunther</p>
+                  <p className="text-black text-sm text-center font-medium text-gray-600 mt-3">Fresh Design</p>
                 </div>
               </Slider>
             </div>
@@ -111,19 +124,27 @@ const About = () => {
 
         {/* Second Column */}
         <div className="w-full md:w-1/2 p-4 rounded-lg flex flex-col justify-center items-center">
-          <h2 className="text-lg mb-3 text-amber-400 text-center uppercase">About Us</h2>
-          <h4 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-black text-center mt-10 mb-10">
+          <h2 className={`text-lg mb-3 text-[var(--primary)] text-center uppercase`}>About Us</h2>
+          <h4 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-10 mb-10">
             Creative solutions by professional designers
           </h4>
-          <p className="text-center text-lg">
+          <p className="text-center text-lg text-[var(--secondary)]">
             Your kitchen is an expression of who you are, and its design should match your lifestyle. Whether you have
             traditional tastes or desire a modern feel, we can design your dream kitchen to suit any purpose.
           </p>
-          <button className="px-6 py-2 bg-[#16222b] text-white font-medium rounded-lg transition-all duration-300 hover:bg-amber-400 hover:shadow-md flex justify-center items-center gap-3 mt-10 mb-15 ">
+          <button
+            className={`px-6 py-2 bg-var(--secondary)] text-white font-medium rounded-lg transition-all duration-300 hover:bg-[var(--primary)] hover:shadow-md flex justify-center items-center gap-3 mt-10 mb-15 `}
+          >
             Continue Reading <FaAngleRight />
           </button>
           <div className="relative h-150 w-full">
-            <Image src={image1} alt="About our company" fill className="object-cover rounded-lg" />
+            <Image
+              src={image1}
+              alt="About our company"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover rounded-lg"
+            />
           </div>
         </div>
       </div>
