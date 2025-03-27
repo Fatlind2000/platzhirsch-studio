@@ -7,7 +7,6 @@ import AlternatingLayoutGrid from "@/components/Reusable/itemsgrid";
 export default function Home() {
   return (
     <div>
-      <BannerSlider />
       <ExampleGrid />
     </div>
   );
