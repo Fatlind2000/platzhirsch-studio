@@ -48,6 +48,7 @@ const Navbar = () => {
     { name: "HOME", href: "/" },
     {
       name: "INDOOR",
+      href: "#",
       subItems: [
         { name: "WOHNEN", href: "/indoor/wohnen" },
         { name: "KÜCHE", href: "/indoor/kuche" },
@@ -60,6 +61,7 @@ const Navbar = () => {
     { name: "BERATUNG", href: "/beratung" },
     {
       name: "ÜBER UNS",
+      href: "/ueber-uns",
       subItems: [
         { name: "MARKEN", href: "/ueber-uns/marken" },
         { name: "TEAM", href: "/ueber-uns/team" },
@@ -96,8 +98,10 @@ const Navbar = () => {
                 <div key={item.name} className="relative group">
                   {item.subItems ? (
                     <>
-                      <button
+                      <Link
+                        href={item.href}
                         onMouseEnter={() => toggleDropdown(item.name)}
+                        onClick={() => toggleDropdown(item.name)}
                         className="flex items-center text-[var(--ternary)] hover:text-[var(--primary)] transition uppercase text-sm"
                       >
                         {item.name}
@@ -106,7 +110,7 @@ const Navbar = () => {
                         ) : (
                           <FiChevronDown className="ml-1" />
                         )}
-                      </button>
+                      </Link>
                       {openDropdown === item.name && (
                         <div
                           className="absolute left-0 mt-6 w-48 bg-[var(--ternary)] rounded-md shadow-lg py-1 z-50"
@@ -117,7 +121,10 @@ const Navbar = () => {
                               key={subItem.name}
                               href={subItem.href}
                               className="block px-4 py-2 text-gray-700 hover:bg-[var(--primary)]/10 hover:text-[var(--secondary)] uppercase text-sm"
-                              onClick={() => setOpenDropdown(null)}
+                              onClick={() => {
+                                setOpenDropdown(null);
+                                closeMobileMenu();
+                              }}
                             >
                               {subItem.name}
                             </Link>

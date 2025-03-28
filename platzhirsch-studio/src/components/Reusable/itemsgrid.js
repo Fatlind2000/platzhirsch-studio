@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const AlternatingLayoutGrid = () => {
+const AlternatingLayoutGrid = ({ data }) => {
+  console.log("data", data);
   const items = [
     {
       title: "Modern Living Room Designs",
@@ -42,7 +43,7 @@ const AlternatingLayoutGrid = () => {
 
   return (
     <div className="space-y-16 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {items.map((item, index) => (
+      {data.map((item, index) => (
         <div
           key={index}
           className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
@@ -51,21 +52,19 @@ const AlternatingLayoutGrid = () => {
         >
           {/* Image - appears first on even indexes, second on odd indexes */}
           <div className={`relative h-[300px] md:h-[500px] ${index % 2 === 0 ? "" : "md:col-start-2"}`}>
-            <Image
-              src={item.image}
+            <img
+              src={`http://192.168.68.197:8000${item.image}`}
               alt={item.title}
-              fill
-              className="object-cover rounded-lg shadow-md"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="w-full h-full object-contain rounded-lg shadow-md"
             />
           </div>
 
           {/* Content - appears second on even indexes, first on odd indexes */}
           <div className={`${index % 2 === 0 ? "" : "md:col-start-1 md:row-start-1"}`}>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[var(--secondary)]/90">{item.title}</h2>
-            <p className="text-[var(--secondary)]/80 mb-6 text-md">{item.description}</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[var(--secondary)]/90">{item?.title}</h2>
+            <p className="text-[var(--secondary)]/80 mb-6 text-md">{item?.description}</p>
             <Link
-              href={item.link}
+              href={item?.title.toLowerCase()}
               className="inline-block px-6 py-3 bg-[var(--primary)]/90 text-white rounded-lg hover:bg-[var(--primary)] transition-colors font-medium"
             >
               View Collection

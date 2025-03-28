@@ -1,18 +1,35 @@
-import React from 'react'
-import Team from "@/components/Team/teambanner"
-import Teamsecond from "@/components/Team/team"
-import TeamMember from "@/components/Team/teammember"
+import React from "react";
+import SinglePageBanner from "@/components/Reusable/singlePageSlider";
+import Teamsecond from "@/components/Team/team";
+import TeamMember from "@/components/Team/teammember";
 
 const page = () => {
-    return (
-        <div >
+  const BannerInfo = {
+    image: "/Images/Team/reading-area.jpg",
+    links: [
+      {
+        linkName: "Home",
+        link: "/",
+      },
+      {
+        linkName: "ÜBER UNS",
+        link: "/ueber-uns",
+      },
+      {
+        linkName: "Team",
+        link: "/ueber-uns/team",
+      },
+    ],
+    title: "Team", // Added title property
+  };
 
-            <Team />
-            <Teamsecond/>
-            <TeamMember/>
+  return (
+    <div>
+      <SinglePageBanner info={BannerInfo} />
+      <Teamsecond />
+      <TeamMember />
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default page
+export default page;

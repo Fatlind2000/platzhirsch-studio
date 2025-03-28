@@ -1,18 +1,42 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const Marken = () => {
-  const items = [
-    { id: 1, title: "Modern Living Room", image: "/Images/Home/download.jpg" },
-    { id: 2, title: "Contemporary Kitchen", image: "/Images/Home/download.jpg" },
-    { id: 3, title: "Luxury Bedroom", image: "/Images/Home/download.jpg" },
-    { id: 4, title: "Spa Bathroom", image: "/Images/Home/download.jpg" },
-    { id: 5, title: "Home Office", image: "/Images/Home/download.jpg" },
-    { id: 6, title: "Outdoor Patio", image: "/Images/Home/download.jpg" },
-    { id: 7, title: "Dining Area", image: "/Images/Home/download.jpg" },
-    { id: 8, title: "Kids Room", image: "/Images/Home/download.jpg" },
-    { id: 9, title: "Guest Suite", image: "/Images/Home/download.jpg" },
-    { id: 10, title: "Rooftop Terrace", image: "/Images/Home/download.jpg" },
-  ];
+  const [marken, setMarken] = useState([]); // Ruaj ngjarjet nga API
+
+  // Merr të dhënat nga API
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch(
+          "http://192.168.68.197:8000/api/method/platzhirsch_studio.platzhirsch_studio.doctype.marken.api.marken_data"
+        );
+
+        // Kontrollo nëse përgjigja është e suksesshme
+        if (!response.ok) {
+          throw new Error("Gabim gjatë marrjes së të dhënave");
+        }
+
+        // Kthe përgjigjen në JSON
+        const data = await response.json();
+
+        // Formato ngjarjet për FullCalendar
+        const formattedEvents = data.message.map((marke) => ({
+          title: marke.name1,
+          images: marke.bild_anhagen,
+          status: marke.status,
+        }));
+
+        // Vendos ngjarjet në state
+        setMarken(formattedEvents);
+      } catch (error) {
+        console.error("Gabim gjatë marrjes së ngjarjeve:", error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
 
   return (
     <section className="py-40 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -41,23 +65,24 @@ const Marken = () => {
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {items.map((item) => (
-          <div key={item.id} className="group overflow-hidden rounded-lg transition-shadow duration-300">
-            <div className="relative aspect-square w-[100%] h-[auto] max-h-[300px]">
-              <Image
-                src={item.image}
-                alt={item.title}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500 "
-              />
+        {marken
+          .filter((item) => item.status === "Aktiv")
+          .map((item, index) => (
+            <div key={index} className="group overflow-hidden rounded-lg transition-shadow duration-300">
+              <div className="relative aspect-square w-[100%] h-[auto] max-h-[300px]">
+                <img
+                  src={`http://192.168.68.197:8000${item?.images[0]?.bild_anhagen}`}
+                  alt={item.title}
+                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-500 "
+                />
+              </div>
+              <div className="p-4 bg-white">
+                <h3 className="text-lg font-semibold text-[var(--secondary)] hover:text-[var(--primary)]">
+                  {item.title}
+                </h3>
+              </div>
             </div>
-            <div className="p-4 bg-white">
-              <h3 className="text-lg font-semibold text-[var(--secondary)] hover:text-[var(--primary)]">
-                {item.title}
-              </h3>
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
     </section>
   );

@@ -1,28 +1,26 @@
 import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 
-const OutdoorLivingSection = () => {
+const OutdoorLivingSection = ({ second }) => {
   const brands = ["Minotti", "Paola Lenti", "Solpuri", "Desalto", "Sifas", "Livintwist", "Heatsail", "Tuuci"];
-
+  console.log("second", second);
   return (
     <section className="py-25 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Text Content */}
         <div className="order-2 lg:order-1">
           <h2 className="text-3xl md:text-4xl font-bold text-[var(--secondary)] mb-6">
-            Extend Your Living Room <span className="text-[var(--primary)]">– Outdoors!</span>
+            {second?.title} <span className="text-[var(--primary)]"> {second?.secondTitle}</span>
           </h2>
 
           <div className="space-y-6 text-md [var(--secondary)]/80">
             <p>
-              And outside, that is. How? With our weather-resistant, high-tech outdoor furniture and accessories.
-              Because we want to be able to enjoy our outdoor space not just in the summer, but on beautiful days in
-              spring, late summer, and even the golden autumn.
-              <br /> Transform your garden, balcony, or terrace into a little paradise where you can retreat when you
-              are looking for peace and quiet from everyday life.
-              <br />
-              Whats more relaxing than enjoying a balmy spring, summer, or autumn evening with a glass of wine, chatting
-              with dear friends, or simply letting your mind wander?
+              {second?.description.map((line, index) => (
+                <span key={index}>
+                  {line}
+                  <br />
+                </span>
+              ))}
             </p>
           </div>
 

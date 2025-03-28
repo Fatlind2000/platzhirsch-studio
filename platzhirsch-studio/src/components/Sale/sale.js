@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import { useState, useEffect } from "react";
 
 const SaleSection = () => {
   const saleItems = [
@@ -45,6 +46,30 @@ const SaleSection = () => {
       salePrice: "€719",
     },
   ];
+  const [sales, setSales] = useState([]);
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch(
+          "http://192.168.68.197:8000/api/method/platzhirsch_studio.platzhirsch_studio.doctype.sale.api.sale_data"
+        );
+        if (!response.ok) throw new Error("Fehler beim Abrufen der Daten");
+
+        const data = await response.json();
+        const formattedEvents = await data.message.map((sale) => ({
+          title: sale.name1,
+          originalPrice: sale.fruher_preis,
+          salePrice: sale.preis,
+          imageUrl: sale.bild_anhagen,
+          status: sale.status,
+        }));
+        await setSales(formattedEvents);
+      } catch (error) {
+        console.error("Fehler beim Abrufen der Daten:", error);
+      }
+    };
+    fetchEvents();
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 md:py-20">
@@ -78,14 +103,14 @@ const SaleSection = () => {
 
       {/* Sale Items Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {saleItems.map((item) => (
-          <div key={item.id} className="bg-white rounded-lg overflow-hidden ">
+        {sales.map((item, index) => (
+          <div key={index} className="bg-white rounded-lg overflow-hidden ">
             {/* Image */}
             <div className="h-64 overflow-hidden">
               <img
-                src={item.imageUrl}
+                src={`http://192.168.68.197:8000${item.imageUrl}`}
                 alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
               />
             </div>
 
@@ -96,8 +121,8 @@ const SaleSection = () => {
 
               {/* Price */}
               <div className="flex items-center gap-3">
-                <span className="text-gray-500 line-through">{item.originalPrice}</span>
-                <span className="text-[var(--primary)] font-bold underline text-lg">{item.salePrice}</span>
+                <span className="text-gray-500 line-through">€{item.originalPrice.toFixed(2)}</span>
+                <span className="text-[var(--primary)] font-bold underline text-lg">€{item.salePrice.toFixed(2)}</span>
               </div>
             </div>
           </div>
