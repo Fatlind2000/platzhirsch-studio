@@ -2,60 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 
 const AlternatingLayoutGrid = ({ data }) => {
-  console.log("data", data);
-  const items = [
-    {
-      title: "Modern Living Room Designs",
-      description:
-        "Discover our curated collection of contemporary living room furniture that combines comfort with sleek, modern aesthetics. Perfect for urban spaces.",
-      image: "/Images/Home/download.jpg",
-      link: "/living-room",
-    },
-    {
-      title: "Outdoor Furniture Collection",
-      description:
-        "Transform your patio or garden with our weather-resistant outdoor furniture. Designed for style and durability in all seasons.",
-      image: "/Images/Home/download.jpg",
-      link: "/outdoor",
-    },
-    {
-      title: "Minimalist Bedroom Solutions",
-      description:
-        "Create your perfect sanctuary with our minimalist bedroom designs. Clean lines, quality materials, and peaceful aesthetics.",
-      image: "/Images/Home/download.jpg",
-      link: "/bedroom",
-    },
-    {
-      title: "Luxury Kitchen Essentials",
-      description:
-        "Elevate your cooking space with our premium kitchen furniture and accessories. Where functionality meets high-end design.",
-      image: "/Images/Home/download.jpg",
-      link: "/kitchen",
-    },
-    {
-      title: "Home Office Innovations",
-      description:
-        "Productive workspaces designed for comfort and efficiency. Our home office solutions adapt to your professional needs.",
-      image: "/Images/Home/download.jpg",
-      link: "/office",
-    },
-  ];
-
   return (
     <div className="space-y-16 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {data.map((item, index) => (
         <div
           key={index}
-          className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
+          className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20 items-center justify-between ${
             index % 2 === 0 ? "" : "md:grid-flow-dense"
           }`}
         >
           {/* Image - appears first on even indexes, second on odd indexes */}
-          <div className={`relative h-[300px] md:h-[500px] ${index % 2 === 0 ? "" : "md:col-start-2"}`}>
+          <div className={`relative h-[300px] md:h-[500px] flex  ${index % 2 === 0 ? "" : "md:col-start-2 "}`}>
             <img
               src={`http://192.168.68.197:8000${item.image}`}
               alt={item.title}
-              className="w-full h-full object-contain rounded-lg shadow-md"
+              className={`w-full h-full object-cover `}
             />
           </div>
 

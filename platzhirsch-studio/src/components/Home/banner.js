@@ -2,6 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Link from "next/link";
+
+import { BsArrowRight } from "react-icons/bs";
 
 const ImageSlider = () => {
   const settings = {
@@ -10,6 +13,8 @@ const ImageSlider = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 10000,
     arrows: false,
     // Custom dot positioning
     appendDots: (dots) => (
@@ -32,74 +37,82 @@ const ImageSlider = () => {
     ),
   };
   const [currentSlide, setCurrentSlide] = React.useState(0);
+
+  const SliderData = [
+    {
+      img: "/Images/Home/bannerImage.jpg",
+      title: "Minotti",
+      description: "Der Garten als Erweiterung des anspruchvollen Wohnraums",
+    },
+    {
+      img: "/Images/Home/bannerImage.webp",
+      title: "Treca Paris",
+      description: "Schlafen wie Gott in Frankeich",
+    },
+    {
+      img: "/Images/Home/bannerImage-1.webp",
+      title: "Poliform",
+      description: "Der Sommer 2024 kann kommen",
+    },
+    {
+      img: "/Images/Home/bannerImage-1.jpg",
+      title: "Poliform Bed",
+      description: "Designmöbel für den Wohn- und Schlafbereich",
+    },
+    {
+      img: "/Images/Home/bannerImage-2.jpg",
+      title: "Flos",
+      description: "Ausdrucksstarke Leuchten-Designs",
+    },
+    {
+      img: "/Images/Home/bannerImage-3.jpg",
+      title: "Poliform Cucine",
+      description: "Modulares Küchendesign aus Italien",
+    },
+    {
+      img: "/Images/Home/bannerImage-4.jpg",
+      title: "Rimadesio",
+      description: "Elegante Wand- und Regalsysteme",
+    },
+    {
+      img: "/Images/Home/bannerImage-5.jpg",
+      title: "ClassiCon",
+      description: "Möbelstücke zeitgenössischer Designer",
+    },
+  ];
   return (
-    <div className="slider-container w-full h-dvh md:h-250">
+    <div className="slider-container w-full h-dvh md:h-180">
       <Slider {...settings} beforeChange={(current, next) => setCurrentSlide(next)}>
         {/* Slide 1 */}
-        <div className="slider-slide bg-cover bg-center w-full h-dvh md:h-250 ">
-          <div
-            className="relative w-full h-dvh  bg-cover bg-center"
-            style={{ backgroundImage: "url('/Images/Home/grey-and-brown-combo-style-room-1.jpg')" }}
-          >
-            {/* Veil (Darker Overlay) */}
-            <div className="absolute inset-0 bg-black opacity-50"></div>
+        {SliderData.map((item) => (
+          <div className="slider-slide bg-cover bg-center w-full h-dvh md:h-180 ">
+            <div
+              className="relative w-full h-dvh md:h-210  bg-cover bg-center"
+              style={{ backgroundImage: `url(${item.img})` }}
+            >
+              {/* Veil (Darker Overlay) */}
+              <div className="absolute inset-0 bg-black opacity-50"></div>
 
-            {/* Content (Text & Button) */}
-            <div className="relative flex justify-center items-center flex-col h-dvh w-full p-5 text-center">
-              <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[800px] xl:text-7xl">
-                Design Your Kitchen with the Experts
-              </h1>
-              <p className="text-white text-md md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px]">
-                Kitchens should be designed around whats truly important: family, food, and life.
-              </p>
-              <button className="bg-white text-black px-4 py-2 rounded-lg hover:bg-amber-400 mt-10">Get Started</button>
+              {/* Content (Text & Button) */}
+              <div className="relative flex justify-center items-center flex-col h-dvh md:h-210 w-full p-5 text-center">
+                <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[800px] xl:text-7xl">
+                  {item.title}
+                </h1>
+                <p className="text-white text-md md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px] mb-4">
+                  {item.description}
+                </p>
+                <Link href={`/marken/${item.title.toLowerCase()}`}>
+                  <button
+                    target="blank"
+                    className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[#daa14c] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[#c88f3f] transition delay-150 hover:text-white"
+                  >
+                    JETZT NACHRICHT SENDEN <BsArrowRight />
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Slide 2 */}
-        <div className="slider-slide bg-cover bg-center w-full h-dvh md:h-250 ">
-          <div
-            className="relative w-full h-dvh  bg-cover bg-center"
-            style={{ backgroundImage: "url('/Images/Home/grey-and-brown-combo-style-room-1.jpg')" }}
-          >
-            {/* Veil (Darker Overlay) */}
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-
-            {/* Content (Text & Button) */}
-            <div className="relative flex justify-center items-center flex-col h-dvh w-full p-5 text-center">
-              <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[800px] xl:text-7xl">
-                Design Your Kitchen with the Experts
-              </h1>
-              <p className="text-white text-md md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px]">
-                Kitchens should be designed around whats truly important: family, food, and life.
-              </p>
-              <button className="bg-white text-black px-4 py-2 rounded-lg hover:bg-amber-400 mt-10">Get Started</button>
-            </div>
-          </div>
-        </div>
-
-        {/* Slide 3 */}
-        <div className="slider-slide bg-cover bg-center w-full h-dvh md:h-250 ">
-          <div
-            className="relative w-full h-dvh  bg-cover bg-center"
-            style={{ backgroundImage: "url('/Images/Home/download.jpg')" }}
-          >
-            {/* Veil (Darker Overlay) */}
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-
-            {/* Content (Text & Button) */}
-            <div className="relative flex justify-center items-center flex-col h-dvh w-full p-5 text-center">
-              <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[800px] xl:text-7xl">
-                Design Your Kitchen with the Experts
-              </h1>
-              <p className="text-white text-md md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px]">
-                Kitchens should be designed around whats truly important: family, food, and life.
-              </p>
-              <button className="bg-white text-black px-4 py-2 rounded-lg hover:bg-amber-400 mt-10">Get Started</button>
-            </div>
-          </div>
-        </div>
+        ))}
       </Slider>
     </div>
   );

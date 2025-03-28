@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const SinglePageBanner = ({ info }) => {
   return (
-    <div className="relative w-full h-[50dvh] lg:h-150">
+    <div className="relative w-full h-[50dvh] lg:h-180">
       {/* Background image - using the image from props */}
       <Image
         src={info.image}

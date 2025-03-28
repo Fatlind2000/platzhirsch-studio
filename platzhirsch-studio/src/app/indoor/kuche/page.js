@@ -20,12 +20,12 @@ export default function Home() {
         if (!response.ok) throw new Error("Fehler beim Abrufen der Daten");
 
         const data = await response.json();
-        const filteredData = data.message.filter((sale) => sale.typen === "Indoor" && sale.indoor_typen === "Kuche");
-        const formattedEvents = filteredData.map((sale) => ({
-          title: sale.title,
-          description: sale.beschreibung,
-          image: sale.bild_anhagen,
-          status: sale.status,
+        const filteredData = data.message.filter((item) => item.typen === "Indoor" && item.indoor_typen === "Kuche");
+        const formattedEvents = filteredData.map((item) => ({
+          title: item.title,
+          description: item.beschreibung,
+          image: item.bild_anhagen,
+          status: item.status,
         }));
         setData(formattedEvents);
       } catch (error) {

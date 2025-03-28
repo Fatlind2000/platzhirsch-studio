@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa";
+import { BsArrowRight } from "react-icons/bs";
 
 export default function Choice() {
   return (
@@ -19,11 +20,12 @@ export default function Choice() {
         <p className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--ternary)] text-center mb-10 max-w-2xl">
           Lassen Sie uns Ihr neues Traumprojekt starten
         </p>
-        <Link href="/contact" passHref>
+        <Link href={`/kontakt`}>
           <button
-            className={`px-8 py-2  text-[var(--secondary)] hover:text-white font-medium rounded-4xl text-lg  duration-300 flex items-center gap-3 bg-[var(--ternary)] hover:bg-[var(--primary)]`}
+            target="blank"
+            className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[var(--secondary)] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[var(--primary)] transition delay-100 hover:text-white"
           >
-            Jetzt starten <FaAngleRight />
+            JETZT NACHRICHT SENDEN <BsArrowRight />
           </button>
         </Link>
       </div>

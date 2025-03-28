@@ -1,11 +1,14 @@
 "use client";
 import Image from "next/image";
-import image1 from "../../../public/Images/Home/download.jpg";
+import image1 from "../../../public/Images/Home/aboutHome.jpg";
+import image2 from "../../../public/Images/Home/secondAboutHome.jpg";
+
 import Signature from "../../../public/Images/Home/home6_png-2.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaAngleRight } from "react-icons/fa";
 import Slider from "react-slick";
+import Link from "next/link";
 
 const About = () => {
   const settings = {
@@ -74,72 +77,39 @@ const About = () => {
             />
           </div>
           <div className="w-full">
-            <div className="relative h-20 w-full my-10">
-              <Image
-                src={Signature}
-                alt="About our company"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-contain rounded-lg"
-              />
-            </div>
+            <div className="relative h-20 w-full"></div>
             <div className="w-full max-w-4xl mx-auto">
-              <Slider {...settings}>
-                {/* Slide 1 */}
-                <div className="h-64 md:h-96 flex items-center justify-center">
-                  <p className="text-black text-md text-center font-medium text-gray-600">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book.
-                  </p>
-                  <p className="font-bold text-md text-center text-[var(--secondary)] mt-10"> Joshua Keith</p>
-                  <p className="text-black text-sm text-center font-medium text-gray-600 mt-3">Fresh Design</p>
-                </div>
-
-                {/* Slide 2 */}
-                <div className="h-64 md:h-96  flex items-center justify-center">
-                  <p className="text-black text-md text-center font-medium text-gray-600">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book.
-                  </p>
-                  <p className="font-bold text-md text-center text-[var(--secondary)] mt-10"> Sharon Keith</p>
-                  <p className="text-black text-sm text-center font-medium text-gray-600 mt-3">Fresh Design</p>
-                </div>
-
-                {/* Slide 3 */}
-                <div className="h-64 md:h-96 flex items-center justify-center">
-                  <p className="text-black text-md text-center font-medium text-gray-600">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book.
-                  </p>
-                  <p className="font-bold text-md text-center text-[var(--secondary)] mt-10"> Sharon Gunther</p>
-                  <p className="text-black text-sm text-center font-medium text-gray-600 mt-3">Fresh Design</p>
-                </div>
-              </Slider>
+              <h4 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-10 mb-10">
+                Unsere Mission
+              </h4>
+              <p className="text-center text-ms text-[var(--secondary)]">
+                Bei Platzhirsch Studio streben wir danach, kreative und durchdachte Lösungen zu entwickeln, die
+                Markenidentitäten stärken und nachhaltig im Gedächtnis bleiben. Unser Ziel ist es, eine Brücke zwischen
+                Design und Strategie zu schlagen, um unsere Kunden langfristig erfolgreich zu positionieren.
+              </p>
             </div>
           </div>
         </div>
 
         {/* Second Column */}
         <div className="w-full md:w-1/2 p-4 rounded-lg flex flex-col justify-center items-center">
-          <h2 className={`text-lg mb-3 text-[var(--primary)] text-center uppercase`}>About Us</h2>
+          <h2 className={`text-lg mb-3 text-[var(--primary)] text-center uppercase`}>ÜBER UNS</h2>
           <h4 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-10 mb-10">
-            Creative solutions by professional designers
+            Ihre Vision, unser Antrieb
           </h4>
           <p className="text-center text-ms text-[var(--secondary)]">
-            Your kitchen is an expression of who you are, and its design should match your lifestyle. Whether you have
-            traditional tastes or desire a modern feel, we can design your dream kitchen to suit any purpose.
+            Platzhirsch Studio steht für kreatives Design, innovative Lösungen und maßgeschneiderte Markenstrategien.
+            Wir bringen Ideen zum Leben – authentisch, modern und wirkungsvoll.
           </p>
-          <button
-            className={`px-6 py-2 bg-var(--secondary)] text-white font-medium rounded-lg transition-all duration-300 hover:bg-[var(--primary)] hover:shadow-md flex justify-center items-center gap-3 mt-10 mb-15 `}
+          <Link
+            href="/ueber-uns"
+            className={`px-6 py-2 bg-[var(--secondary)] text-white font-medium rounded-lg transition-all duration-300 hover:bg-[var(--primary)] hover:shadow-md flex justify-center items-center gap-3 mt-10 mb-15 `}
           >
-            Continue Reading <FaAngleRight />
-          </button>
+            Weiterlesen <FaAngleRight />
+          </Link>
           <div className="relative h-150 w-full">
             <Image
-              src={image1}
+              src={image2}
               alt="About our company"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

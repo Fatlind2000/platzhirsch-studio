@@ -22,12 +22,12 @@ export default function Home() {
         if (!response.ok) throw new Error("Fehler beim Abrufen der Daten");
 
         const data = await response.json();
-        const filteredData = data.message.filter((sale) => sale.typen === "Outdoor");
-        const formattedEvents = filteredData.map((sale) => ({
-          title: sale.title,
-          description: sale.beschreibung,
-          image: sale.bild_anhagen,
-          status: sale.status,
+        const filteredData = data.message.filter((outdoor) => outdoor.typen === "Outdoor");
+        const formattedEvents = filteredData.map((outdoor) => ({
+          title: outdoor.title,
+          description: outdoor.beschreibung,
+          image: outdoor.bild_anhagen,
+          status: outdoor.status,
         }));
         setData(formattedEvents);
       } catch (error) {

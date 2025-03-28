@@ -21,13 +21,13 @@ export default function Home() {
 
         const data = await response.json();
         const filteredData = data.message.filter(
-          (sale) => sale.typen === "Indoor" && sale.indoor_typen === "Accessoires"
+          (item) => item.typen === "Indoor" && item.indoor_typen === "Accessoires"
         );
-        const formattedEvents = filteredData.map((sale) => ({
-          title: sale.title,
-          description: sale.beschreibung,
-          image: sale.bild_anhagen,
-          status: sale.status,
+        const formattedEvents = filteredData.map((item) => ({
+          title: item.title,
+          description: item.beschreibung,
+          image: item.bild_anhagen,
+          status: item.status,
         }));
         setData(formattedEvents);
       } catch (error) {

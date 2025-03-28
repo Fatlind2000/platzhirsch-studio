@@ -30,7 +30,7 @@ const GridComponent = ({ items }) => {
         {currentItems
           .filter((item) => item.status === "Aktiv")
           .map((item, index) => (
-            <div key={item.id} className={`bg-white rounded-lg overflow-hidden  ${index === 0 ? "first-item" : ""}`}>
+            <div key={index} className={`bg-white rounded-lg overflow-hidden  ${index === 0 ? "first-item" : ""}`}>
               {/* Image */}
               <div className="h-80 overflow-hidden">
                 <img
