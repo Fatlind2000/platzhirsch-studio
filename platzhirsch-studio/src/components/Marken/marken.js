@@ -22,11 +22,14 @@ const Marken = () => {
         const data = await response.json();
 
         // Formato ngjarjet për FullCalendar
-        const formattedEvents = data.message.map((marke) => ({
-          title: marke.name1,
-          images: marke.bild_anhagen,
-          status: marke.status,
-        }));
+        const formattedEvents = data.message
+          .slice() // copy to avoid mutating original
+          .reverse() // reverse if the API sends it in the wrong order
+          .map((marke) => ({
+            title: marke.name1,
+            images: marke.logo,
+            status: marke.status,
+          }));
 
         // Vendos ngjarjet në state
         setMarken(formattedEvents);
@@ -64,23 +67,26 @@ const Marken = () => {
         inspirieren – hier finden Sie alles, um Ihr Zuhause zu einem Ort der Schönheit und Harmonie zu machen.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {marken
           .filter((item) => item.status === "Aktiv")
           .map((item, index) => (
-            <div key={index} className="group overflow-hidden rounded-lg transition-shadow duration-300">
-              <div className="relative aspect-square w-[100%] h-[auto] max-h-[300px]">
+            <div
+              key={index}
+              className="group overflow-hidden transition-shadow duration-300 border flex items-center justify-center"
+            >
+              <div className="relative aspect-square w-[60%] h-[auto] max-h-[150px]">
                 <img
-                  src={`http://192.168.68.197:8000${item?.images[0]?.bild_anhagen}`}
+                  src={`http://192.168.68.197:8000${item?.images}`}
                   alt={item.title}
-                  className="w-full h-full object-contain hover:scale-105 transition-transform duration-500 "
+                  className="w-full h-full hover:cursor-pointer object-contain transition-transform duration-500 "
                 />
               </div>
-              <div className="p-4 bg-white">
+              {/* <div className="p-4 bg-white">
                 <h3 className="text-lg font-semibold text-[var(--secondary)] hover:text-[var(--primary)]">
                   {item.title}
                 </h3>
-              </div>
+              </div> */}
             </div>
           ))}
       </div>
