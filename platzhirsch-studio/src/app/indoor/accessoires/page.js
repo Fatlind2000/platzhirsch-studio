@@ -45,7 +45,8 @@ export default function Home() {
       "Es sind die Accessoires, die einem Raum das besondere Etwas geben: Vorhänge, Tapeten, Vasen und auch Plaids oder Decken, die ihre Nutzer mit wohliger Wärme umfangen. Wanddekoration, die dem künstlerischen Anspruch Ausdruck verleiht. Oder darf es eine Feuerstelle sein?",
       "Gerne setzen wir mit wohldosierten und gezielten (Farb)Tupfen Ihr Refugium in ein ganz besonders Licht.",
     ],
-    additionally: "Platzhirsch – denkt ganzheitlich.",
+    brands: ["101 Copenhagen", "Baobab", "Alonpi Cashmere"],
+    image: "/Images/Accessories/bannerImageAccessories3.jpg",
   };
   return (
     <div>

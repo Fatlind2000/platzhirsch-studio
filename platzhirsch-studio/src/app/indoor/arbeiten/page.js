@@ -34,10 +34,21 @@ export default function Home() {
     };
     fetchEvents();
   }, []);
+  const SecondPart = {
+    title: "Home Office – Arbeitsplatz der",
+    secondTitle: "Zukunft",
+    description: [
+      "Die Rückkehr an den gewohnten Arbeitsplatz hat mittlerweile wieder stattgefunden. Dennoch haben viele Menschen die Vorzüge des Homeoffice erkannt. Das Covid Experiment hat gezeigt, dass die erforderlichen Technologien funktionieren und dass produktive Teamarbeit auch so möglich ist. Deswegen wird ein Großteil der arbeitenden Bevölkerung auch weiterhin einen Teil ihrer Arbeitszeit von zu Hause erledigen.",
+      "Wer nicht über einen eigenen Büroraum verfügt, ist zunächst gefordert den richtigen Platz und das perfekte Umfeld zu schaffen. Um Ordnung und Ruhe zu sichern, müssen Regale und Trennwände her, die sich perfekt in die Wohnung einpassen.",
+      "Gerne setzen wir mit wohldosierten und gezielten (Farb)Tupfen Ihr Refugium in ein ganz besonders Licht.",
+    ],
+    brands: ["Minotti", "Classicon", "Eichholz", "Poliform", "Rimadesio"],
+    image: "/Images/Arbeiten/bannerImageArbeiten3.jpg",
+  };
   return (
     <div>
       <BannerSlider images={images} />
-      <OutdoorSection />
+      <OutdoorSection second={SecondPart} />
       <AlternatingLayoutGrid data={data} />
     </div>
   );

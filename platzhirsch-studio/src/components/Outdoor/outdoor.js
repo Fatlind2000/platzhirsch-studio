@@ -19,15 +19,16 @@ const OutdoorLivingSection = ({ second }) => {
                 <span key={index}>
                   {line}
                   <br />
+                  <br />
                 </span>
               ))}
             </p>
           </div>
 
           <div className="mt-8">
-            <h3 className="text-xl font-semibold mb-4 text-[var(--secondary)]/90">Featured Brands:</h3>
+            <h3 className="text-xl font-semibold mb-4 text-[var(--secondary)]/90">Vorgestellte Marken:</h3>
             <div className="flex flex-wrap gap-3">
-              {brands.map((brand) => (
+              {second.brands.map((brand) => (
                 <span
                   key={brand}
                   className="px-4 py-2 bg-[var(--secondary)]/10 hover:bg-[var(--primary)] rounded-full text-[var(--secondary)]/90 hover:text-[var(--ternary)]"
@@ -41,7 +42,7 @@ const OutdoorLivingSection = ({ second }) => {
 
         {/* Image */}
         <div className="order-1 lg:order-2 relative h-100 lg:h-[700px] overflow-hidden ">
-          <Image src="/Images/Home/download.jpg" alt="Luxury outdoor living space" fill className="object-cover" />
+          <Image src={`${second.image}`} alt="Luxury outdoor living space" fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
         </div>
       </div>

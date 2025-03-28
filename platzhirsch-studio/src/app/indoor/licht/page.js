@@ -36,10 +36,19 @@ export default function Home() {
     };
     fetchEvents();
   }, []);
+  const SecondPart = {
+    title: "Licht ",
+    secondTitle: "inszeniert",
+    description: [
+      "Licht illuminiert. Licht beeinflusst Wahrnehmungen und Emotionen. Licht schafft Atmosphäre und Stimmungen. Daher sollte jeder Raum so ausgeleuchtet sein, dass er positive Empfindungen weckt. Denn nur Licht gelingt es, Räume zu verändern, Akzente zu setzen und Szenen zu schaffen. Eine optimale Lichtberatung ist das Um und Auf, wenn der Raumcharakter gezielt unterstrichen und erstklassiges Design mit höchster Funktionalität verbunden werden soll.",
+    ],
+    brands: ["Flos", "Brand van Egmond", "Tom Dixon", "Quasar"],
+    image: "/Images/Licht/bannerImageLicht5.jpg",
+  };
   return (
     <div>
       <BannerSlider images={images} />
-      <OutdoorSection />
+      <OutdoorSection second={SecondPart} />
       <AlternatingLayoutGrid data={data} />
     </div>
   );

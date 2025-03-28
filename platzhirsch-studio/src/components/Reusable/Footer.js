@@ -1,25 +1,27 @@
 import Link from "next/link";
-import { MdOutlineCalendarMonth } from "react-icons/md";
 import { FaTwitter, FaFacebookF, FaInstagram, FaPinterestP, FaYoutube } from "react-icons/fa";
 import { RiLinkedinFill } from "react-icons/ri";
 import { FiPhoneCall } from "react-icons/fi";
+import { BsArrowRight } from "react-icons/bs";
 import Image from "next/image";
 import footerimg from "../../../public/Images/Footer/PlatzImage.png";
 
 export default function Footer() {
   return (
-    <div className="relative bg-[url('/Images/NotFound/footer_BG.jpg')] bg-cover bg-top w-full text-white">
+    <div className="relative bg-[url('/Images/Footer/detailed-room.jpg')] bg-cover bg-center w-full text-white">
       <div className="relative w-full">
-        <div className="absolute inset-0 bg-gray-800/60 z-0" />
-
+        <div className="absolute inset-0 bg-gray-800/75 z-0" />
         <div className="relative z-10 py-16 px-6 text-center max-w-3xl mx-auto">
-          <h1 className="text-base mb-4 text-[#daa14c] tracking-[0.7] font-semibold">YOU DREAM IT, WE DESIGN IT</h1>
+          <h1 className="text-base mb-4 text-[#daa14c] tracking-[0.7] font-semibold">LASSEN SIE SICH INSPIRIEREN</h1>
           <p className="mb-12 font-bold text-4xl md:text-5xl leading-tight tracking-normal">
-            We can build you the kitchen <br /> of your dreams
+            Neuigkeiten & Aktionen direkt in Ihr Postfach.
           </p>
-          <Link href="/">
-            <button className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[#daa14c] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[#c88f3f] transition delay-150 hover:text-white">
-              SCHEDULE A CHAT <MdOutlineCalendarMonth />
+          <Link href="/kontakt" target="blank">
+            <button
+              target="blank"
+              className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[#daa14c] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[#c88f3f] transition delay-150 hover:text-white"
+            >
+              JETZT NACHRICHT SENDEN <BsArrowRight />
             </button>
           </Link>
         </div>
@@ -28,7 +30,7 @@ export default function Footer() {
       <hr className="w-full border-t border-gray-600 m-0 p-0" />
 
       <div className="relative w-full">
-        <div className="absolute inset-0 bg-gray-800/80 z-0" />
+        <div className="absolute inset-0 bg-gray-800/93 z-0" />
 
         <footer className="relative z-10 w-full py-8 px-8 md:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
@@ -107,15 +109,38 @@ export default function Footer() {
             <div>
               <h3 className="text-md font-semibold mb-4 text-white">WEITERFÜHRENDE LINKS</h3>
               <ul className="space-y-2 text-sm text-gray-400">
-                <li>Newsletter</li>
-                <li>Kontakt</li>
-                <li>Platzhirsch Cafe</li>
-                <li>Privatsphäre-Einstellungen</li>
-                <li>Datenschutz</li>
-                <li>Impressum</li>
+                <li>
+                  <Link href="/newsletter" target="blank" className="hover:text-white transition">
+                    Newsletter
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/kontakt" target="blank" className="hover:text-white transition">
+                    Kontakt
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://platzhirsch.cafe/" target="blank" className="hover:text-white transition">
+                    Platzhirsch Cafe
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privatsphaere-einstellungen" target="blank" className="hover:text-white transition">
+                    Privatsphäre-Einstellungen
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/datenschutz" target="blank" className="hover:text-white transition">
+                    Datenschutz
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/impressum" target="blank" className="hover:text-white transition">
+                    Impressum
+                  </Link>
+                </li>
               </ul>
             </div>
-
             <div>
               <h3 className="text-md font-semibold mb-4 text-white">NEWSLETTER ABONNIEREN</h3>
               <p className="text-sm text-gray-400 mb-4">

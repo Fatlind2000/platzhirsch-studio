@@ -41,10 +41,20 @@ export default function Home() {
     };
     fetchEvents();
   }, []);
+  const SecondPart = {
+    title: "Wohnzimmer – Spiegel Ihrer ",
+    secondTitle: "Persönlichkeit",
+    description: [
+      "Das Wohn- und Schlafzimmer sind die wichtigsten Räume. Das Wohnzimmer befriedigt die meisten Bedürfnisse. Hier wird relaxt, gelesen und Musik gehört, hier treffen Familie und Freunde zusammen. Deswegen muss es einladend und gemütlich sein. Das Schlafzimmer ist unser privater und intimer Rückzugsort.",
+      "Die wichtigsten Möbelstücke sind Sofas oder Lounges und Sessel, Betten, Beistell- und Nachttische, Regale, Vitrinen, Sideboards und gegebenenfalls ein Raumteiler. Alles das vereinen wir in unseren international bekannten Marken wie Minotti, Poliform, Classicon, Rimadesio, Paola Lenti, Treca Paris und Eichholtz. Für das gewisse Etwas erstellen wir ein passendes Farbkonzept mit Tapeten und Wandfarben, finden die perfekte Beleuchtung und flauschige Teppiche.",
+    ],
+    brands: ["Minotti", "Poliform", "ClassiCon", "Rimadesio", "Eichholtz", "Treca Paris"],
+    image: "/Images/Wohnen/bannerImage10.jpg",
+  };
   return (
     <div>
       <BannerSlider images={images} />
-      <OutdoorSection />
+      <OutdoorSection second={SecondPart} />
       <AlternatingLayoutGrid data={data} />
     </div>
   );

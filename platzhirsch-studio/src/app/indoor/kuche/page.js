@@ -34,10 +34,21 @@ export default function Home() {
     };
     fetchEvents();
   }, []);
+  const SecondPart = {
+    title: "DIE Küche – Symbiose von Planung und",
+    secondTitle: "Umsetzung",
+    description: [
+      "Die Küche ist schon längst zum Mittelpunkt des Hauses avanciert, als Ort der Nahrungsaufnahme und als Lebensmittelpunkt. Kein Wunder: in ihr passiert so viel wie in keinem anderen Raum des Hauses. Die Küche ist Treffpunkt für Familie und Freunde, es wird gemeinsam gegessen, getrunken und gelacht und mit allen Sinnen genossen. Sie ist Dreh- und Angelpunkt eines übergreifenden Lebensraumes zum Kochen, Essen und Wohnen.",
+      "Im Fokus stehen unsere Designküchen. Sie kombinieren Ästhetik mit hoher Technologie und werden immer öfter auch von preisbewussten Käufern vorgezogen im Wissen um Qualität und einer daraus resultierenden langen Lebensdauer.",
+      "Luxus und Leidenschaft, Technologie und Nachhaltigkeit: Bei uns bekommen Sie das ganze Programm geboten. Wir planen gemeinsam mit Ihnen und setzen um, was Sie sich wünschen.",
+    ],
+    brands: ["Poliform", "Next125", "Schüller"],
+    image: "/Images/Kuche/bannerImageKuche3.jpg",
+  };
   return (
     <div>
       <BannerSlider images={images} />
-      <OutdoorSection />
+      <OutdoorSection second={SecondPart} />
       <AlternatingLayoutGrid data={data} />
     </div>
   );

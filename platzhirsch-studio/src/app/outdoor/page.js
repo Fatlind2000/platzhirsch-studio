@@ -36,10 +36,21 @@ export default function Home() {
     };
     fetchEvents();
   }, []);
+  const SecondPart = {
+    title: "Verlängern Sie Ihr ",
+    secondTitle: "Wohnzimmer",
+    description: [
+      "Und zwar nach draußen. Wie? Mit unseren witterungsbeständigen, hightech Outdoormöbeln und -Accessoires. Denn wir wollen unseren Outdoor Bereich ja nicht nur im Sommer, sondern an schönen Tagen im Frühling, im Spätsommer und auch im goldenem Herbst geniessen können. Verwandeln Sie Ihren Garten, Balkon oder Ihre Terrasse in ein kleines Paradies, in das Sie sich zurückziehen, wenn Sie einmal Ruhe vom Alltag suchen. Was ist entspannender, als einen lauen Frühlings-, Sommer- oder Herbstabend mit einem Glas Wein zu genießen, mit lieben Freunden zu plaudern oder einfach nur die Seele baumeln zu lassen.",
+      "Wir haben eine Reihe von internationalen Marken, die jedem Wetter trotzen und Ihrem Garten oder der Terrasse das gewisse Extra verleihen. Den letzten Schliff erzielen wir mit weichen Outdoor-Textilien, stylischen Sonnenschirmen, exzentrischen Heizstrahlern und mit kabellosen LED Bodenleuchten für eine perfekte Beleuchtung.",
+      "Ob klassisch, zeitgenössisch oder voller Farbe – wir lassen Ihr Wünsche wahr werden mit Marken wie Minotti, Paola Lenti, Solpuri, Desalto, Sifas, Livintwist, Heatsail und Tuuci.",
+    ],
+    brands: ["Minotti", "Paola Lenti", "Solpuri", "Desalto", "Sifas", "Livintwist", "Umbrosa", "Tuuci", "Heatsail"],
+    image: "/Images/Outdoor/bannerImage5.jpg",
+  };
   return (
     <div>
       <BannerSlider images={images} />
-      <OutdoorSection />
+      <OutdoorSection second={SecondPart} />
       <AlternatingLayoutGrid data={data} />
     </div>
   );
