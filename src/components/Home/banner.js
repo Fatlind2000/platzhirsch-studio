@@ -84,8 +84,8 @@ const ImageSlider = () => {
     <div className="slider-container w-full h-dvh md:h-180">
       <Slider {...settings} beforeChange={(current, next) => setCurrentSlide(next)}>
         {/* Slide 1 */}
-        {SliderData.map((item) => (
-          <div className="slider-slide bg-cover bg-center w-full h-dvh md:h-180 ">
+        {SliderData.map((item, index) => (
+          <div key={index} className="slider-slide bg-cover bg-center w-full h-dvh md:h-180 ">
             <div
               className="relative w-full h-dvh md:h-210  bg-cover bg-center"
               style={{ backgroundImage: `url(${item.img})` }}

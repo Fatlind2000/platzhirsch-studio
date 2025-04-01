@@ -137,7 +137,11 @@ const BlogCard = ({ post, isCompact = false }) => {
     <article className={`h-full overflow-hidden transition-shadow duration-300 ${isCompact ? "flex flex-row" : ""}`}>
       {/* Image */}
       <div className={`relative ${isCompact ? "w-1/3 h-auto" : "w-full h-64 md:h-80"}`}>
-        <img src={`http://192.168.68.197:8000${post.image}`} alt={post.title} className="object-cover w-full h-full" />
+        <Image
+          src={`http://192.168.68.197:8000${post.image}`}
+          alt={post.title}
+          className="object-cover w-full h-full"
+        />
       </div>
 
       {/* Content */}
