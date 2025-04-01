@@ -5,7 +5,7 @@ import { FaCalendarDays } from "react-icons/fa6";
 
 const GridComponent = ({ items }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 9;
   const gridRef = useRef(null);
 
   // Calculate total pages
@@ -32,11 +32,17 @@ const GridComponent = ({ items }) => {
           .map((item, index) => (
             <div key={index} className={`bg-white rounded-lg overflow-hidden  ${index === 0 ? "first-item" : ""}`}>
               {/* Image */}
-              <div className="h-80 overflow-hidden">
+              <div className="h-80 overflow-hidden w-full">
                 <img
-                  src={`http://192.168.68.197:8000${item?.imageUrl}`}
+                  src={
+                    item?.imageUrl
+                      ? `http://192.168.68.197:8000${item.imageUrl}`
+                      : item?.array?.[0]?.bild_anhagen
+                      ? `http://192.168.68.197:8000${item.array[0]?.bild_anhagen}`
+                      : `http://192.168.68.197:8000${item.array[1]?.bild_anhagen}` // Add a fallback here if both are missing
+                  }
                   alt={item.title}
-                  className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+                  className="w-full h-80 object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
 
@@ -52,11 +58,21 @@ const GridComponent = ({ items }) => {
                 </div>
 
                 {/* Description with ellipsis for overflow */}
-                <p className="text-gray-600 mb-6 line-clamp-3 text-md leading-relaxed">{item?.description}</p>
+                <p className="text-gray-600 mb-6 line-clamp-3 sm:line-clamp-1  md:line-clamp-3 text-md leading-relaxed">
+                  {item?.description}
+                </p>
 
                 {/* Read More button */}
                 <a
-                  href={item?.link}
+                  href={`/news/${item?.title
+                    .toLowerCase()
+                    .replace(/\s+/g, "-")
+                    .replace(/\//g, "-")
+                    .replace(/[ä]/g, "ae")
+                    .replace(/[ö]/g, "oe")
+                    .replace(/[ü]/g, "ue")
+                    .replace(/[ß]/g, "ss")
+                    .replace(/[^a-z0-9-]/g, "")}`}
                   className="py-2 text-[var(--secondary)] hover:text-[var(--primary)] flex items-center gap-2 transition-colors duration-300 group"
                 >
                   <span className="font-medium">Read More</span>
@@ -132,6 +148,7 @@ const ExampleGrid = () => {
           imageUrl: member.bild_anhagen,
           date: member.daten,
           status: member.status,
+          array: member.artikel_table,
         }));
 
         // Vendos ngjarjet në state

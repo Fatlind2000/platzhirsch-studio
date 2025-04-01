@@ -25,7 +25,9 @@ const MarkenItemBanner = ({ info }) => {
         </div>
 
         {/* Title */}
-        <h1 className="font-bold text-4xl md:text-5xl tracking-normal text-white text-center">{info.title}</h1>
+        <h1 className="font-bold text-4xl md:text-5xl tracking-normal text-white text-center max-w-5xl">
+          {info.title}
+        </h1>
       </div>
     </div>
   );

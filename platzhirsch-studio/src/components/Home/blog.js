@@ -23,15 +23,19 @@ const BlogSection = () => {
           .slice(0, 3) // Get only the 3 latest posts
           .map((post) => ({
             id: post.name,
-            title: post.title,
+            title: post.name1,
             description: post.beschreibung,
-            image: post.bild_anhagen,
+            image: post.bild_anhagen
+              ? post.bild_anhagen
+              : post.artikel_table?.[0]?.bild_anhagen
+              ? post.artikel_table?.[0]?.bild_anhagen
+              : post.artikel_table?.[1]?.bild_anhagen,
             date: new Date(post.creation).toLocaleDateString("de-DE", {
               day: "numeric",
               month: "long",
               year: "numeric",
             }),
-            readTime: "3 min read", // Default value or you could calculate from content
+
             featured: false, // Will set the first one as featured below
           }));
 
@@ -132,27 +136,29 @@ const BlogCard = ({ post, isCompact = false }) => {
   return (
     <article className={`h-full overflow-hidden transition-shadow duration-300 ${isCompact ? "flex flex-row" : ""}`}>
       {/* Image */}
-      <div className={`relative ${isCompact ? "w-1/3 h-48" : "w-full h-64 md:h-80"}`}>
-        <img
-          src={`http://192.168.68.197:8000${post.image}`}
-          alt={post.title}
-          className="object-contain w-full h-full"
-        />
+      <div className={`relative ${isCompact ? "w-1/3 h-auto" : "w-full h-64 md:h-80"}`}>
+        <img src={`http://192.168.68.197:8000${post.image}`} alt={post.title} className="object-cover w-full h-full" />
       </div>
 
       {/* Content */}
       <div className={`p-6 flex flex-col ${isCompact ? "w-2/3" : ""}`}>
         <div className="flex items-center text-sm text-gray-500 mb-2">
           <span>{post.date}</span>
-          <span className="mx-2">•</span>
-          <span>{post.readTime}</span>
         </div>
         <h3 className={`${isCompact ? "text-lg" : "text-xl md:text-2xl"} font-bold text-[var(--quinary)] mb-3`}>
           {post.title}
         </h3>
-        <p className="text-[var(--secondary)] mb-4 flex-grow">{post.description}</p>
+        <p className="text-[var(--secondary)] mb-4 flex-grow line-clamp-2 md:line-clamp-3">{post.description}</p>
         <Link
-          href={`/blog/${post.id}`}
+          href={`/news/${post.title
+            .toLowerCase()
+            .replace(/\s+/g, "-")
+            .replace(/\//g, "-")
+            .replace(/[ä]/g, "ae")
+            .replace(/[ö]/g, "oe")
+            .replace(/[ü]/g, "ue")
+            .replace(/[ß]/g, "ss")
+            .replace(/[^a-z0-9-]/g, "")}`}
           className="inline-flex items-center text-[var(--secondary)] hover:text-[var(--primary)] font-medium mt-auto"
         >
           Read More
