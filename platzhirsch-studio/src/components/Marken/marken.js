@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Marken = () => {
   const [marken, setMarken] = useState([]); // Ruaj ngjarjet nga API
@@ -71,7 +72,8 @@ const Marken = () => {
         {marken
           .filter((item) => item.status === "Aktiv")
           .map((item, index) => (
-            <div
+            <Link
+              href={`/ueber-uns/marken/${item.title.toLowerCase()}`}
               key={index}
               className="group overflow-hidden transition-shadow duration-300 border flex items-center justify-center"
             >
@@ -87,7 +89,7 @@ const Marken = () => {
                   {item.title}
                 </h3>
               </div> */}
-            </div>
+            </Link>
           ))}
       </div>
     </section>
