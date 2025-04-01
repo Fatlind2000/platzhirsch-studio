@@ -72,14 +72,14 @@ const About = () => {
               src={image1}
               alt="About our company"
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover rounded-lg"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 63vw"
+              className="object-cover"
             />
           </div>
           <div className="w-full">
-            <div className="relative h-20 w-full"></div>
+            <div className="relative h-10 w-full"></div>
             <div className="w-full max-w-4xl mx-auto">
-              <h4 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-10 mb-10">
+              <h4 className="sm:lg md:text:xl text-5xl font-bold mb-5 text-[var(--quinary)] text-center mt-10 mb-10">
                 Unsere Mission
               </h4>
               <p className="text-center text-ms text-[var(--secondary)]">
@@ -92,9 +92,9 @@ const About = () => {
         </div>
 
         {/* Second Column */}
-        <div className="w-full md:w-1/2 p-4 rounded-lg flex flex-col justify-center items-center">
+        <div className="w-full md:w-1/2 p-4 flex flex-col justify-center items-center">
           <h2 className={`text-lg mb-3 text-[var(--primary)] text-center uppercase`}>ÜBER UNS</h2>
-          <h4 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-10 mb-10">
+          <h4 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-5 mb-5">
             Ihre Vision, unser Antrieb
           </h4>
           <p className="text-center text-ms text-[var(--secondary)]">
@@ -112,31 +112,13 @@ const About = () => {
               src={image2}
               alt="About our company"
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover rounded-lg"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 63vw"
+              className="object-cover"
             />
           </div>
         </div>
       </div>
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-15 mb-10">
-        {stats.map((stat, index) => (
-          <div
-            key={stat.label}
-            className={`
-              relative
-              flex flex-col items-center
-              ${
-                index !== stats.length - 1
-                  ? "after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:h-16 after:w-px after:bg-gray-300 sm:after:block after:hidden"
-                  : ""
-              }
-            `}
-          >
-            <span className="text-4xl md:text-5xl font-bold text-amber-600">{stat.value}+</span>
-            <span className="mt-2 text-lg text-gray-600 text-center">{stat.label}</span>
-          </div>
-        ))}
-      </div> */}
+
       <div className="max-w-full mx-auto overflow-hidden mt-20">
         <Slider {...secondSettings}>
           {images.map((src, index) => (
@@ -146,7 +128,7 @@ const About = () => {
                   src={src}
                   alt={`Slide ${index + 1}`}
                   fill
-                  className="object-contain rounded-lg"
+                  className="object-contain"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>

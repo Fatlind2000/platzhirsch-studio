@@ -38,17 +38,19 @@ const MultiStepForm = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md mb-20">
+    <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg mb-20">
       <h2 className="text-2xl font-bold mb-6 text-center">Anfrage</h2>
 
       <form onSubmit={handleSubmit}>
         {/* Step 1 */}
         {step >= 1 && (
           <div className={`mb-8 ${step > 1 ? "opacity-50" : ""}`}>
-            <h3 className="text-md font-semibold mb-4 flex items-center">Bei meiner Anfrage geht es um </h3>
+            <h3 className="text-md font-semibold mb-4 flex justify-center items-center">
+              Bei meiner Anfrage geht es um{" "}
+            </h3>
             <div className="space-y-3">
               {step1Options.map((option) => (
-                <label key={option.id} className="flex items-center p-3 hover:bg-gray-50 cursor-pointer">
+                <label key={option.id} className="flex justify-center items-center p-3 hover:bg-gray-50 cursor-pointer">
                   <div className="relative flex items-center justify-center">
                     <input
                       type="checkbox"
@@ -72,16 +74,18 @@ const MultiStepForm = () => {
         {/* Step 2 - Only shows if step1 is selected */}
         {step >= 2 && (
           <div className={`mb-8 ${step > 2 ? "opacity-50" : ""}`}>
-            <h3 className="text-md font-semibold mb-4 flex items-center">Das Projekt soll verwirklicht werden</h3>
+            <h3 className="text-md font-semibold mb-4 flex justify-center items-center">
+              Das Projekt soll verwirklicht werden
+            </h3>
             <div className="space-y-3">
               {step2Options.map((option) => (
-                <label key={option.id} className="flex items-center p-3 hover:bg-gray-50 cursor-pointer">
+                <label key={option.id} className="flex items-center justify-center p-3 hover:bg-gray-50 cursor-pointer">
                   <div className="relative flex items-center justify-center">
                     <input
                       type="checkbox"
                       checked={selectedOptions.step2 === option.id}
                       onChange={() => handleOptionSelect(2, option.id)}
-                      className=" appearance-none h-5 w-5 border border-gray-300 rounded-full checked:border-blue-500 checked:bg-white focus:outline-none relative"
+                      className="appearance-none h-5 w-5 border border-gray-300 rounded-full checked:border-blue-500 checked:bg-white focus:outline-none relative"
                     />
                     {selectedOptions.step2 === option.id && (
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -99,7 +103,9 @@ const MultiStepForm = () => {
         {/* Step 3 - Message */}
         {step >= 3 && (
           <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-4 flex items-center">Bitte beschreiben Sie Ihr Vorhaben</h3>
+            <h3 className="text-lg font-semibold mb-4 flex items-center justify-center">
+              Bitte beschreiben Sie Ihr Vorhaben
+            </h3>
             <textarea
               value={selectedOptions.message}
               onChange={(e) =>

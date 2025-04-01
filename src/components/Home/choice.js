@@ -7,12 +7,12 @@ export default function Choice() {
   return (
     <div className="relative w-full my-10">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image src="/Images/Home/download.jpg" alt="Background" fill quality={100} priority />
+      <div className="absolute inset-0 z-0 object-cover">
+        <Image src="/Images/Home/bannerImage-3.jpg" alt="Background" fill quality={100} objectFit="cover" priority />
       </div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-[var(--secondary)]/70 bg-opacity-50 z-1"></div>
+      <div className="absolute inset-0 bg-[var(--secondary)]/80 bg-opacity-50 z-1"></div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 py-40 ">

@@ -29,6 +29,8 @@ const GridComponent = ({ items }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {currentItems
           .filter((item) => item.status === "Aktiv")
+          .slice() // Create a shallow copy
+          .reverse()
           .map((item, index) => (
             <div key={index} className={`bg-white rounded-lg overflow-hidden  ${index === 0 ? "first-item" : ""}`}>
               {/* Image */}
@@ -54,7 +56,7 @@ const GridComponent = ({ items }) => {
                 {/* Date with calendar icon */}
                 <div className="flex items-center text-gray-500 mb-4 text-md">
                   <FaCalendarDays className="mr-3 text-[var(--primary)]/70" />
-                  <span className="text-lg">{item?.date}</span>
+                  <span className="text-lg">{item?.date ? new Date(item.date).toLocaleDateString("de-DE") : ""}</span>
                 </div>
 
                 {/* Description with ellipsis for overflow */}
@@ -90,7 +92,7 @@ const GridComponent = ({ items }) => {
             <button
               onClick={() => paginate(Math.max(1, currentPage - 1))}
               disabled={currentPage === 1}
-              className="px-4 py-2 rounded-md border border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
+              className="px-4 cursor-pointer py-2 rounded-md border border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors"
             >
               Previous
             </button>
@@ -99,7 +101,7 @@ const GridComponent = ({ items }) => {
               <button
                 key={number}
                 onClick={() => paginate(number)}
-                className={`px-4 py-2 rounded-md ${
+                className={`px-4 py-2 cursor-pointer rounded-md ${
                   currentPage === number ? "bg-[var(--primary)] text-white" : "border border-gray-300 hover:bg-gray-50"
                 } transition-colors`}
               >

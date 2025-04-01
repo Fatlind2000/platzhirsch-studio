@@ -57,7 +57,7 @@ const BlogSection = () => {
 
   if (loading) {
     return (
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-lg mb-8 text-[var(--primary)] text-center uppercase">Neuigkeiten</h2>
           <p className="text-3xl md:text-4xl mb-8 max-w-2xl font-bold text-center text-[var(--quinary)]">
@@ -73,7 +73,7 @@ const BlogSection = () => {
 
   if (posts.length === 0) {
     return (
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-lg mb-8 text-[var(--primary)] text-center uppercase">Neuigkeiten</h2>
           <p className="text-3xl md:text-4xl mb-8 max-w-2xl font-bold text-center text-[var(--quinary)]">
@@ -88,9 +88,9 @@ const BlogSection = () => {
   }
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section className=" px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-12">
       {/* Header */}
-      <div className="text-center mb-12 flex flex-col items-center">
+      <div className="text-center mb-8 flex flex-col items-center">
         <h2 className="text-lg mb-8 text-[var(--primary)] text-center uppercase">Neuigkeiten</h2>
         <p className="text-3xl md:text-4xl mb-8 max-w-2xl font-bold text-center text-[var(--quinary)]">
           Neueste Nachrichten

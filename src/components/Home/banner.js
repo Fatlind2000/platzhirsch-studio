@@ -91,7 +91,7 @@ const ImageSlider = () => {
               style={{ backgroundImage: `url(${item.img})` }}
             >
               {/* Veil (Darker Overlay) */}
-              <div className="absolute inset-0 bg-black opacity-50"></div>
+              <div className="absolute inset-0 bg-black opacity-65"></div>
 
               {/* Content (Text & Button) */}
               <div className="relative flex justify-center items-center flex-col h-dvh md:h-210 w-full p-5 text-center">
