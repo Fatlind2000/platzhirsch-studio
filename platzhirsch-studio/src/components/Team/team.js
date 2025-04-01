@@ -9,7 +9,7 @@ const team = () => {
 
 
 
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full px-4 py-16 max-w-7xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full px-4 mt-20 max-w-7xl mx-auto">
                 {/* Image section */}
                 <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[700px] lg:w-[500px]">
                     <Image

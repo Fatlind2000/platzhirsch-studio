@@ -43,14 +43,14 @@ const Marken = () => {
   }, []);
 
   return (
-    <section className="py-40 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <h2 className={`text-lg mb-3 text-[var(--primary)] text-left uppercase`}>Marken</h2>
-      <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Starke Marken</h4>
-      <p className="text-md text-[var(--secondary)]/80 mb-3">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <h2 className={`text-lg mb-5 text-[var(--primary)] text-left uppercase`}>Marken</h2>
+      <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-5">Starke Marken</h4>
+      <p className="text-md text-[var(--secondary)]/80 mb-5">
         Unser Portfolio umfasst eine exklusive Auswahl an renommierten Marken, die für zeitlose Eleganz, höchste
         Handwerkskunst und wegweisendes Design stehen.
       </p>
-      <p className="text-md text-[var(--secondary)]/80 mb-3">
+      <p className="text-md text-[var(--secondary)]/80 mb-5">
         Jede Marke, die wir führen, erzählt ihre eigene Geschichte und bringt ihre einzigartige Handschrift in die Welt
         des Designs ein. Ob luxuriöse Möbel, raffinierte Accessoires oder moderne Wohnlösungen – unsere Marken vereinen
         Funktionalität mit Ästhetik und inspirieren zu außergewöhnlichen Wohnkonzepten.
@@ -73,7 +73,7 @@ const Marken = () => {
           .filter((item) => item.status === "Aktiv")
           .map((item, index) => (
             <Link
-              href={`/ueber-uns/marken/${item.title.toLowerCase()}`}
+              href={`/ueber-uns/marken/${item.title.toLowerCase().replace(/\s+/g, "-")}`}
               key={index}
               className="group overflow-hidden transition-shadow duration-300 border flex items-center justify-center"
             >

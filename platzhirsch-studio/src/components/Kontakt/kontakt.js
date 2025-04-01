@@ -242,7 +242,7 @@ const Kontakt = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-[#daa14c] hover:bg-[#c89130] text-white font-semibold px-6 py-3 rounded-md transition disabled:opacity-50"
+                className="bg-[#daa14c] cursor-pointer hover:bg-[#c89130] text-white font-semibold px-6 py-3 rounded-md transition disabled:opacity-50"
               >
                 {loading ? "Wird gesendet..." : "Nachricht senden"}
               </button>

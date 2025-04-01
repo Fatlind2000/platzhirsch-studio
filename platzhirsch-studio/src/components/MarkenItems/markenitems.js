@@ -50,9 +50,8 @@ export default function BrandPage({ marke }) {
     ),
     customPaging: (i) => (
       <div
-        className={`transition-all duration-300 mx-1.5 rounded-full ${
-          i === currentSlide ? "w-4 h-4 border-2 border-white bg-transparent" : "w-3 h-3 bg-white opacity-50"
-        }`}
+        className={`transition-all duration-300 mx-1.5 rounded-full ${i === currentSlide ? "w-4 h-4 border-2 border-white bg-transparent" : "w-3 h-3 bg-white opacity-50"
+          }`}
       />
     ),
     beforeChange: (current, next) => setCurrentSlide(next),
@@ -68,14 +67,14 @@ export default function BrandPage({ marke }) {
 
   console.log(marke);
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       {/* Brand Info Section */}
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <div className="container mx-auto px-4 py-20 max-w-4xl">
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div>
-            <h2 className="text-xl font-semibold mb-4">Gründungsjahr: {marke.grundungsjahr}</h2>
-            <h2 className="text-xl font-semibold mb-4">Herkunftsland: {marke.herkunftsland}</h2>
-            <h2 className="text-xl font-semibold mb-8">Gründer: {marke.grunder}</h2>
+            <h2 className="text-md  mb-4">Gründungsjahr: {marke.grundungsjahr}</h2>
+            <h2 className="text-md  mb-4">Herkunftsland: {marke.herkunftsland}</h2>
+            <h2 className="text-md  mb-8">Gründer: {marke.grunder}</h2>
 
             <div className="mb-8">
               <a
@@ -95,13 +94,14 @@ export default function BrandPage({ marke }) {
               alt={`${marke.name} logo`}
               className="w-auto h-auto"
             />
+
           </div>
         </div>
 
         {/* Brand Description */}
         <div className="prose max-w-none mb-12">
-          {marke.produkte && <p className="text-lg leading-relaxed mb-6">Produkte: {marke.produkte}</p>}
-          {marke.beschreibung && <p className="text-lg leading-relaxed">{marke.beschreibung}</p>}
+          {marke.produkte && <p className="text-md leading-relaxed mb-6">Produkte: {marke.produkte}</p>}
+          {marke.beschreibung && <p className="text-md leading-relaxed">{marke.beschreibung}</p>}
         </div>
 
         {/* Image Slider */}

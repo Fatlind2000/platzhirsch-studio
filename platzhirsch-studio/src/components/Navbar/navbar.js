@@ -11,7 +11,9 @@ import {
   FiFacebook,
   FiInstagram,
   FiTwitter,
+  FiLinkedin
 } from "react-icons/fi";
+import { FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import { TfiPinterest } from "react-icons/tfi";
@@ -146,7 +148,7 @@ const Navbar = () => {
               {/* Studio Info Panel Trigger */}
               <button
                 onClick={() => setShowStudioInfo(!showStudioInfo)}
-                className="text-[var(--ternary)] hover:text-[var(--primary)] transition uppercase text-2xl"
+                className="text-[var(--ternary)] hover:cursor-pointer hover:text-[var(--primary)] transition uppercase text-2xl cursor:pointer"
               >
                 <FiMenu />
               </button>
@@ -154,7 +156,7 @@ const Navbar = () => {
           </div>
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-white rounded p-2 focus:outline-none transition"
+            className="lg:hidden text-white rounded p-2 focus:outline-none transition cursor:pointer"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -169,12 +171,12 @@ const Navbar = () => {
             onClick={() => setShowStudioInfo(false)}
           >
             <div
-              className=" absolute right-0 top-0 h-full w-100 bg-[var(--secondary)] shadow-lg transform transition-transform duration-300 "
+              className=" absolute right-0 top-0 h-full  w-100 bg-[var(--secondary)] shadow-lg transform transition-transform duration-300 "
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="flex justify-end p-4">
+              <div className="flex justify-end p-4 ">
                 <button
-                  className="text-[var(--ternary)] rounded p-1 focus:outline-none"
+                  className="text-[var(--ternary)] rounded p-1 focus:outline-none cursor-pointer"
                   onClick={() => setShowStudioInfo(false)}
                   aria-label="Close studio info"
                 >
@@ -194,46 +196,50 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-start mb-10">
-                  <p className="text-[var(--ternary)] text-2xl">Creative solutions by professional designers</p>
+                  <p className="text-center text-[var(--ternary)] text-2xl">Stilvolle Wohnkonzepte mit Persönlichkeit und Qualität</p>
                 </div>
 
                 <div className="flex items-start mb-10">
                   <FiMapPin className="text-[var(--primary)] mt-1 mr-2" />
-                  <p className="text-[var(--ternary)] text-md">Musterstraße 123, 12345 Berlin</p>
+                  <p className="text-[var(--ternary)] text-md">Landstraße 11, 6911 Lochau (Vorarlberg) Österreich
+
+                  </p>
                 </div>
 
                 <div className="flex items-start mb-10">
                   <FiClock className="text-[var(--primary)] mt-1 mr-2" />
                   <div>
-                    <p className="text-[var(--ternary)] text-md">Mo-Fr: 9:00 - 18:00</p>
-                    <p className="text-[var(--ternary)] text-md">Sa: 10:00 - 14:00</p>
+                    <p className="text-[var(--ternary)] text-md">Montag: Ruhetag</p>
+                    <p className="text-[var(--ternary)] text-md">Dienstag-Freitag: 10-18 Uhr</p>
+                    <p className="text-[var(--ternary)] text-md">Samstag: 10-14 Uhr</p>
+
                   </div>
                 </div>
 
                 <div className="flex items-start mb-10">
                   <FiPhone className="text-[var(--primary)] mt-1 mr-2" />
-                  <p className="text-[var(--ternary)] text-md">+49 30 1234567</p>
+                  <a href="tel:+43557446255" className="text-[var(--ternary)] text-md hover:text-[var(--primary)] transition">
+                  +43 5574 46255
+                  </a>
                 </div>
+
 
                 {/* Social Media Icons */}
                 <div className="flex space-x-4 mb-10">
-                  <a href="#" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
+                  <a href="https://www.facebook.com/platzhirsch.studio/" target="blank" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
                     <FiFacebook className="w-6 h-6" />
                   </a>
-                  <a href="#" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
+                  <a href="https://www.instagram.com/platzhirsch.studio/?hl=en" target="blank" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
                     <FiInstagram className="w-6 h-6" />
                   </a>
-                  <a href="#" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
-                    <FiTwitter className="w-6 h-6" />
-                  </a>
-                  <a href="#" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
-                    <TfiPinterest className="w-6 h-6" />
+                  <a href="https://www.linkedin.com/company/platzhirsch-studio" target="blank" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
+                    <FaLinkedinIn className="w-6 h-6"/>
                   </a>
                 </div>
 
                 {/* Image Grid - 3 per row */}
                 <div className="grid grid-cols-3 gap-4 mb-10">
-                  {["download.jpg", "download.jpg", "download.jpg", "download.jpg", "download.jpg", "download.jpg"].map(
+                  {["bannerImage-1.jpg", "bannerImage-2.jpg", "bannerImage-3.jpg", "bannerImage-4.jpg", "bannerImage-5.jpg", "bannerImage.jpg"].map(
                     (item, index) => (
                       <div key={index} className="relative aspect-square">
                         <Image
@@ -251,7 +257,7 @@ const Navbar = () => {
                 {/* Footer Text */}
                 <div className="border-t border-[var(--ternary)] pt-6">
                   <p className="text-[var(--ternary)] text-sm text-center">
-                    © {new Date().getFullYear()} It Engineers. All rights reserved.
+                    © {new Date().getFullYear()} Platzhirsch Studio. Alle Rechte vorbehalten.
                   </p>
                 </div>
               </div>
@@ -283,7 +289,7 @@ const Navbar = () => {
                       <>
                         <button
                           onClick={() => toggleDropdown(item.name)}
-                          className="flex items-center justify-between w-full text-[var(--secondary)]/90 hover:text-[var(--primary)] py-2 uppercase text-sm"
+                          className="flex items-center justify-between w-full text-[var(--secondary)]/90 hover:text-[var(--primary)] py-2 uppercase text-sm hover:cursor-pointer"
                         >
                           {item.name}
                           {openDropdown === item.name ? (
@@ -298,7 +304,7 @@ const Navbar = () => {
                               <Link
                                 key={subItem.name}
                                 href={subItem.href}
-                                className="block py-2 text-[var(--secondary)]/90 hover:text-[var(--primary)] uppercase text-sm"
+                                className="block py-2 text-[var(--secondary)]/90 hover:text-[var(--primary)] uppercase text-sm hover:cursor-pointer"
                                 onClick={closeMobileMenu}
                               >
                                 {subItem.name}
@@ -310,7 +316,7 @@ const Navbar = () => {
                     ) : (
                       <Link
                         href={item.href}
-                        className="block py-2 text-[var(--secondary)] hover:text-[var(--primary)] uppercase text-sm"
+                        className="block py-2 text-[var(--secondary)] hover:text-[var(--primary)] uppercase text-sm hover:cursor-pointer"
                         onClick={closeMobileMenu}
                       >
                         {item.name}

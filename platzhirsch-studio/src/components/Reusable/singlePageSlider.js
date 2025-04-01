@@ -18,7 +18,7 @@ const SinglePageBanner = ({ info }) => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/70 z-10" />
 
-      <div className="relative z-20 flex flex-col items-center justify-center h-full">
+      <div className="relative z-20 flex flex-col pt-23 items-center justify-center h-full">
         {/* Breadcrumb navigation */}
         <div className="flex items-center justify-center text-white gap-2 mb-4 md:mb-6">
           {info.links.map((link, index) => (

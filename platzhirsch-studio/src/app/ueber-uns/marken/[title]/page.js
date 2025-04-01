@@ -5,6 +5,18 @@ import SinglePageBanner from "@/components/Reusable/singlePageSlider";
 import BrandPage from "@/components/MarkenItems/markenitems";
 import MarkenItemBanner from "@/components/MarkenItems/markenItemBanner";
 
+
+function generateSlug(title) {
+  return title
+    .toLowerCase()
+    .replace(/\s+/g, "-") // Replace spaces with dashes
+    .replace(/\//g, "-")
+    .replace(/[ä]/g, "ae") // Replace German special characters
+    .replace(/[ö]/g, "oe")
+    .replace(/[ü]/g, "ue")
+    .replace(/[ß]/g, "ss")
+    .replace(/[^a-z0-9-]/g, ""); // Remove other special characters
+}
 // Fetch the paths dynamically from your API for SSG (Static Site Generation)
 export async function generateStaticParams() {
   try {
@@ -15,7 +27,7 @@ export async function generateStaticParams() {
 
     // Extract paths from the data for each dynamic route
     const paths = data.message.map((marke) => ({
-      title: marke.name1.toString(),
+      title: generateSlug(marke.name1),
     }));
 
     return paths.map((path) => ({
@@ -34,7 +46,7 @@ export async function generateMetadata({ params }) {
       "http://192.168.68.197:8000/api/method/platzhirsch_studio.platzhirsch_studio.doctype.marken.api.marken_data"
     );
     const data = await res.json();
-    const marke = data.message.find((m) => m.name1.toString().toLowerCase() === params.title.toLowerCase());
+    const marke = data.message.find((m) => generateSlug(m.name1) === params.title);
 
     if (!marke) {
       notFound(); // Return 404 if brand not found
@@ -61,7 +73,7 @@ export default async function MarkenDetailPage({ params }) {
     );
     const data = await res.json();
 
-    const marke = data.message.find((m) => m.name1.toString().toLowerCase() === params.title.toLowerCase());
+    const marke = data.message.find((m) => generateSlug(m.name1) === params.title);
 
     if (!marke) {
       notFound(); // Return 404 if brand not found

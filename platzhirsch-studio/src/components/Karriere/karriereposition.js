@@ -44,66 +44,78 @@ const KarrierePosition = () => {
   console.log(karriere);
   return (
     <>
-      <div className="max-w-5xl mx-auto px-4 py-16">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-[#303030]">Aktuelle Stellenangebote</h2>
+      <div className="max-w-5xl mx-auto px-4 py-15">
+        <div className="text-center ">
+          <h2 className="text-3xl font-bold text-[#303030] mb-3">Aktuelle Stellenangebote</h2>
           <p className="text-gray-500">Bewerben Sie sich jederzeit gerne auf unsere Stellenangebote</p>
         </div>
 
-        <div className="space-y-6">
-          {karriere
-            .filter((item) => item.status === "Aktiv")
-            .map((job, index) => (
-              <div key={index} className="bg-white border rounded-md p-4 relative overflow-hidden">
-                <div
-                  onClick={() => toggleJob(job.id)}
-                  className="cursor-pointer flex flex-col md:flex-row justify-between items-center"
-                >
-                  <div className="flex items-center gap-4 w-full md:w-auto">
-                    <div className="w-16 h-16 bg-white rounded flex items-center justify-center shadow text-3xl text-[var(--primary)] font-bold">
-                      P
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-800">{job.title}</h3>
-                      <div className="text-sm text-gray-500 flex flex-wrap items-center gap-3 mt-1">
-                        <span className="flex items-center gap-1">
-                          <MdBusinessCenter /> Platzhirsch Studio
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MdLocationOn /> Lochau (Vorarlberg) Österreich
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <MdAttachMoney /> {job.salary}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <FaUserFriends /> {job.positions} Mitarbeiter gesucht
-                        </span>
+
+        <div>
+          {karriere.filter((item) => item.status === "Aktiv").length === 0 ? (
+            <p className="text-center text-[#daa14c] text-md">
+              Zurzeit haben wir keine offenen Stellenangebote.
+            </p>
+          ) : (
+            karriere
+              .filter((item) => item.status === "Aktiv")
+              .map((job, index) => (
+                <div key={index} className="bg-white border rounded-md p-4 relative overflow-hidden">
+                  <div
+                    onClick={() => toggleJob(job.id)}
+                    className="cursor-pointer flex flex-col md:flex-row justify-between items-center"
+                  >
+                    {/* Job Header */}
+                    <div className="flex items-center gap-4 w-full md:w-auto">
+                      <div className="w-16 h-16 bg-white rounded flex items-center justify-center shadow text-3xl text-[var(--primary)] font-bold">
+                        P
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-800">{job.title}</h3>
+                        <div className="text-sm text-gray-500 flex flex-wrap items-center gap-3 mt-1">
+                          <span className="flex items-center gap-1">
+                            <MdBusinessCenter /> Platzhirsch Studio
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <MdLocationOn /> Lochau (Vorarlberg) Österreich
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <MdAttachMoney /> {job.salary}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <FaUserFriends /> {job.positions} Mitarbeiter gesucht
+                          </span>
+                        </div>
                       </div>
                     </div>
+                    <div className="flex flex-col items-end mt-4 md:mt-0">
+                      <span className="text-[var(--secondary)] px-3 py-1 rounded text-sm font-medium">
+                        {job.type}
+                      </span>
+                      <span className="text-sm text-gray-500 mt-2 flex items-center gap-1">
+                        <BsClockHistory /> Veröffentlicht&nbsp;
+                        {job.posted ? new Date(job.posted).toLocaleDateString("de-DE") : "Unbekannt"}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-end mt-4 md:mt-0">
-                    <span className="text-[var(--secondary)] px-3 py-1 rounded text-sm font-medium">{job.type}</span>
-                    <span className="text-sm text-gray-500 mt-2 flex items-center gap-1">
-                      <BsClockHistory /> Veröffentlicht &nbsp;
-                      {job.posted ? new Date(job.posted).toLocaleDateString("de-DE") : "Unbekannt"}
-                    </span>
-                  </div>
+
+                  {openJobId === index && (
+                    <div className="border-t pt-4 text-gray-600 text-sm mt-4 transition-all duration-500">
+                      <p>{job.description}</p>
+                      <ul className="list-disc list-inside mt-2 list-none">
+                        {job?.requirement?.map((req, idx) => (
+                          <li key={idx}>{req.anforderungen}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
-                {openJobId === index && (
-                  <div className="border-t pt-4 text-gray-600 text-sm mt-4">
-                    <p>{job.description}</p>
-                    <ul className="list-disc list-inside mt-2 list-none">
-                      {job?.requirement?.map((req, idx) => (
-                        <li key={idx}>{req.anforderungen}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            ))}
+              ))
+          )}
         </div>
+
       </div>
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full px-4 py-16 max-w-7xl mx-auto mb-12">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-8 w-full px-4 py-16 max-w-7xl mx-auto">
         <div className="relative w-full h-[250px] sm:h-[350px] lg:h-[500px] lg:w-[550px]">
           <Image
             src={teamImage}
@@ -122,7 +134,7 @@ const KarrierePosition = () => {
             Auf Fragen zu den offenen Stellenangeboten und zum Bewerbungsprozess freut sich Teamleiter Helmut Schuster.
           </p>
           <p className="text-gray-600">
-            Bewerbungen an
+            Bewerbungen an &nbsp;
             <a href="mailto:helmut.schuster@platzhirsch.studio" className="text-gray-600 hover:text-[#daa14c]">
               helmut.schuster@platzhirsch.studio
             </a>
