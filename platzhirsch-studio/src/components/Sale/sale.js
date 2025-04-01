@@ -104,13 +104,13 @@ const SaleSection = () => {
       {/* Sale Items Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {sales.map((item, index) => (
-          <div key={index} className="bg-white rounded-lg overflow-hidden ">
+          <div key={index} className="bg-white overflow-hidden cursor:pointer">
             {/* Image */}
             <div className="h-64 overflow-hidden">
               <img
                 src={`http://192.168.68.197:8000${item.imageUrl}`}
                 alt={item.title}
-                className="w-full h-full object-contain transition-transform duration-500 hover:scale-105"
+                className="w-[300] h-[250] object-cover cursor transition-transform duration-500 hover:scale-105"
               />
             </div>
 
