@@ -11,7 +11,7 @@ import {
   FiFacebook,
   FiInstagram,
   FiTwitter,
-  FiLinkedin
+  FiLinkedin,
 } from "react-icons/fi";
 import { FaLinkedinIn } from "react-icons/fa";
 import Link from "next/link";
@@ -78,10 +78,10 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed w-full z-50">
+    <header className="fixed w-full z-50 bg-[var(--secondary)] ">
       {/* Main Navigation */}
-      <nav className={`w-full bg-[var(--secondary)] py-4`}>
-        <div className="container mx-auto px-4 flex justify-between items-center">
+      <nav className={`w-full max-w-7xl mx-auto  py-4 `}>
+        <div className=" px-4 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center h-16 w-40 relative">
             <Image
@@ -196,14 +196,14 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-start mb-10">
-                  <p className="text-center text-[var(--ternary)] text-2xl">Stilvolle Wohnkonzepte mit Persönlichkeit und Qualität</p>
+                  <p className="text-center text-[var(--ternary)] text-2xl">
+                    Stilvolle Wohnkonzepte mit Persönlichkeit und Qualität
+                  </p>
                 </div>
 
                 <div className="flex items-start mb-10">
                   <FiMapPin className="text-[var(--primary)] mt-1 mr-2" />
-                  <p className="text-[var(--ternary)] text-md">Landstraße 11, 6911 Lochau (Vorarlberg) Österreich
-
-                  </p>
+                  <p className="text-[var(--ternary)] text-md">Landstraße 11, 6911 Lochau (Vorarlberg) Österreich</p>
                 </div>
 
                 <div className="flex items-start mb-10">
@@ -212,46 +212,64 @@ const Navbar = () => {
                     <p className="text-[var(--ternary)] text-md">Montag: Ruhetag</p>
                     <p className="text-[var(--ternary)] text-md">Dienstag-Freitag: 10-18 Uhr</p>
                     <p className="text-[var(--ternary)] text-md">Samstag: 10-14 Uhr</p>
-
                   </div>
                 </div>
 
                 <div className="flex items-start mb-10">
                   <FiPhone className="text-[var(--primary)] mt-1 mr-2" />
-                  <a href="tel:+43557446255" className="text-[var(--ternary)] text-md hover:text-[var(--primary)] transition">
-                  +43 5574 46255
+                  <a
+                    href="tel:+43557446255"
+                    className="text-[var(--ternary)] text-md hover:text-[var(--primary)] transition"
+                  >
+                    +43 5574 46255
                   </a>
                 </div>
 
-
                 {/* Social Media Icons */}
                 <div className="flex space-x-4 mb-10">
-                  <a href="https://www.facebook.com/platzhirsch.studio/" target="blank" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
+                  <a
+                    href="https://www.facebook.com/platzhirsch.studio/"
+                    target="blank"
+                    className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors"
+                  >
                     <FiFacebook className="w-6 h-6" />
                   </a>
-                  <a href="https://www.instagram.com/platzhirsch.studio/?hl=en" target="blank" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
+                  <a
+                    href="https://www.instagram.com/platzhirsch.studio/?hl=en"
+                    target="blank"
+                    className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors"
+                  >
                     <FiInstagram className="w-6 h-6" />
                   </a>
-                  <a href="https://www.linkedin.com/company/platzhirsch-studio" target="blank" className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors">
-                    <FaLinkedinIn className="w-6 h-6"/>
+                  <a
+                    href="https://www.linkedin.com/company/platzhirsch-studio"
+                    target="blank"
+                    className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors"
+                  >
+                    <FaLinkedinIn className="w-6 h-6" />
                   </a>
                 </div>
 
                 {/* Image Grid - 3 per row */}
                 <div className="grid grid-cols-3 gap-4 mb-10">
-                  {["bannerImage-1.jpg", "bannerImage-2.jpg", "bannerImage-3.jpg", "bannerImage-4.jpg", "bannerImage-5.jpg", "bannerImage.jpg"].map(
-                    (item, index) => (
-                      <div key={index} className="relative aspect-square">
-                        <Image
-                          src={`/Images/Home/${item}`} // Adjust path as needed
-                          alt={`Gallery image ${item}`}
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          className="object-cover rounded-lg"
-                        />
-                      </div>
-                    )
-                  )}
+                  {[
+                    "bannerImage-1.jpg",
+                    "bannerImage-2.jpg",
+                    "bannerImage-3.jpg",
+                    "bannerImage-4.jpg",
+                    "bannerImage-5.jpg",
+                    "bannerImage.jpg",
+                  ].map((item, index) => (
+                    <div key={index} className="relative aspect-square">
+                      <Image
+                        src={`/Images/Home/${item}`} // Adjust path as needed
+                        alt={`Gallery image ${item}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover rounded-lg"
+                      />
+                    </div>
+                  ))}
                 </div>
 
                 {/* Footer Text */}
@@ -267,14 +285,14 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden fixed inset-0 bg-black/20 z-40" onClick={closeMobileMenu}>
+          <div className="lg:hidden fixed inset-0 bg-black/20 z-40 " onClick={closeMobileMenu}>
             <div
-              className="absolute right-0 top-0 h-full w-64 bg-[var(--ternary)] shadow-lg transform transition-transform duration-300"
+              className="absolute right-0 top-0 h-full w-full sm:w-100 bg-[var(--ternary)] shadow-lg transform transition-transform duration-300 "
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-end p-4">
                 <button
-                  className="text-[var(--ternary)] rounded p-1 focus:outline-none"
+                  className="text-[var(--secondary)] rounded p-1 focus:outline-none"
                   onClick={closeMobileMenu}
                   aria-label="Close menu"
                 >

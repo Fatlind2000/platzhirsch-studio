@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
 const OutdoorLivingSection = ({ second }) => {
@@ -29,12 +30,13 @@ const OutdoorLivingSection = ({ second }) => {
             <h3 className="text-xl font-semibold mb-4 text-[var(--secondary)]/90">Vorgestellte Marken:</h3>
             <div className="flex flex-wrap gap-3">
               {second.brands.map((brand) => (
-                <span
+                <Link
+                  href={`/ueber-uns/marken/${brand.toLowerCase().replace(/\s+/g, "-")}`}
                   key={brand}
                   className="px-4 py-2 bg-[var(--secondary)]/10 hover:bg-[var(--primary)] rounded-full text-[var(--secondary)]/90 hover:text-[var(--ternary)]"
                 >
                   {brand}
-                </span>
+                </Link>
               ))}
             </div>
           </div>

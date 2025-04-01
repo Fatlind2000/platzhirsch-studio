@@ -25,10 +25,18 @@ const AlternatingLayoutGrid = ({ data }) => {
             <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[var(--secondary)]/90">{item?.title}</h2>
             <p className="text-[var(--secondary)]/80 mb-6 text-md">{item?.description}</p>
             <Link
-              href={item?.title.toLowerCase()}
+              href={`/ueber-uns/marken/${item?.title
+                .toLowerCase()
+                .replace(/\s+/g, "-")
+                .replace(/\//g, "-")
+                .replace(/[ä]/g, "ae")
+                .replace(/[ö]/g, "oe")
+                .replace(/[ü]/g, "ue")
+                .replace(/[ß]/g, "ss")
+                .replace(/[^a-z0-9-]/g, "")}`}
               className="inline-block px-6 py-3 bg-[var(--primary)]/90 text-white rounded-lg hover:bg-[var(--primary)] transition-colors font-medium"
             >
-              View Collection
+              {item?.title}
               <svg className="w-4 h-4 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
