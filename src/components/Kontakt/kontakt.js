@@ -1,8 +1,56 @@
 "use client";
-import React, { useState } from "react";
-import { MdLocationOn, MdPhone, MdEmail, MdAccessTime, MdHome, MdCalendarToday } from "react-icons/md";
+import React, { useState, useEffect } from "react";
+import { MdLocationOn, MdPhone, MdEmail, MdAccessTime, MdHome } from "react-icons/md";
 
 const Kontakt = () => {
+  const [cookieAccepted, setCookieAccepted] = useState(false);
+
+  useEffect(() => {
+    // Check if the cookieConsent cookie is set
+    const cookies = document.cookie.split("; ");
+    const cookieConsentCookie = cookies.find((cookie) => cookie.startsWith("cookieConsent="));
+
+    if (cookieConsentCookie) {
+      // Extract the value and decode it
+      const cookieValue = cookieConsentCookie.split("=")[1];
+      const decodedValue = decodeURIComponent(cookieValue);
+
+      // Parse the JSON string into an object
+      const consentData = JSON.parse(decodedValue);
+
+      // Check if googleMaps consent is true
+      if (consentData.googleMaps) {
+        setCookieAccepted(true);
+      }
+    }
+  }, []);
+
+  const handleAcceptCookie = () => {
+    // Get the existing cookieConsent cookie
+    const cookies = document.cookie.split("; ");
+    const cookieConsentCookie = cookies.find((cookie) => cookie.startsWith("cookieConsent="));
+
+    let consentData = {};
+
+    if (cookieConsentCookie) {
+      // Extract the value and decode it
+      const cookieValue = cookieConsentCookie.split("=")[1];
+      const decodedValue = decodeURIComponent(cookieValue);
+
+      // Parse the JSON string into an object
+      consentData = JSON.parse(decodedValue);
+    }
+
+    // Update only the googleMaps value
+    consentData.googleMaps = true;
+
+    // Save the updated consent data back to the cookie
+    document.cookie = `cookieConsent=${encodeURIComponent(JSON.stringify(consentData))}; path=/; max-age=31536000`; // 1 year expiry
+    setCookieAccepted(true);
+  };
+
+  console.log("Cookie Accepted:", cookieAccepted);
+
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -24,7 +72,6 @@ const Kontakt = () => {
     setLoading(true);
     setMessage(null);
 
-    // Basic validation
     if (!formData.name || !formData.email_address || !formData.ihre_nachricht) {
       setMessage({ type: "error", text: "Bitte füllen Sie alle Pflichtfelder aus." });
       setLoading(false);
@@ -44,9 +91,7 @@ const Kontakt = () => {
         "http://192.168.68.197:8000/api/method/platzhirsch_studio.platzhirsch_studio.doctype.kontakt_form.api.create_contact",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         }
       );
@@ -68,10 +113,7 @@ const Kontakt = () => {
       });
     } catch (error) {
       console.error("Error submitting form:", error);
-      setMessage({
-        type: "error",
-        text: error.message || "Es gab einen Fehler beim Senden Ihrer Nachricht.",
-      });
+      setMessage({ type: "error", text: error.message || "Es gab einen Fehler beim Senden Ihrer Nachricht." });
     } finally {
       setLoading(false);
     }
@@ -144,17 +186,29 @@ const Kontakt = () => {
 
       {/* Google Maps Section */}
       <div className="w-full h-[400px]">
-        <iframe
-          title="Platzhirsch Home Living Map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.9094444536347!2d9.741196115613785!3d47.48721237917747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479c3a06d30d1993%3A0x9b1b64c7aa92d0e5!2sLandstra%C3%9Fe%2011%2C%206911%20Lochau%2C%20Austria!5e0!3m2!1sen!2sat!4v1678817752460!5m2!1sen!2sat"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          className="w-full h-full"
-        ></iframe>
+        {cookieAccepted ? (
+          <iframe
+            title="Platzhirsch Home Living Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.9094444536347!2d9.741196115613785!3d47.48721237917747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479c3a06d30d1993%3A0x9b1b64c7aa92d0e5!2sLandstra%C3%9Fe%2011%2C%206911%20Lochau%2C%20Austria!5e0!3m2!1sen!2sat!4v1678817752460!5m2!1sen!2sat"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-full"
+          ></iframe>
+        ) : (
+          <div className="text-center">
+            <p className="mb-2 text-gray-700">Google Maps ist blockiert, bis Sie die Cookies akzeptieren.</p>
+            <button
+              onClick={handleAcceptCookie}
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            >
+              Google Maps Cookies akzeptieren
+            </button>
+          </div>
+        )}
       </div>
 
       <div className="max-w-7xl mx-auto px-6 py-16">

@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/navbar";
 import BeforeFooter from "@/components/Reusable/Footer.js";
+import CookieComponent from "@/components/Cookies/cookiecomponent";
+import dynamic from "next/dynamic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,11 +23,20 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
         {children}
         <BeforeFooter />
+        <CookieComponent />
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MTT7LVDC"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
       </body>
     </html>
   );

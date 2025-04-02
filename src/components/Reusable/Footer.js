@@ -1,3 +1,5 @@
+"use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FaTwitter, FaFacebookF, FaInstagram, FaPinterestP, FaYoutube } from "react-icons/fa";
 import { RiLinkedinFill } from "react-icons/ri";
@@ -5,8 +7,17 @@ import { FiPhoneCall } from "react-icons/fi";
 import { BsArrowRight } from "react-icons/bs";
 import Image from "next/image";
 import footerimg from "../../../public/Images/Footer/PlatzImage.png";
+import CookieBanner from "../Cookies/cookiecomponent"; // Import the CookiePopup component
 
 export default function Footer() {
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  const handleShowPopup = () => {
+    setIsPopupVisible(true); // Show the popup
+  };
+  useEffect(() => {
+    console.log("Popup visibility changed:", isPopupVisible);
+  }, [isPopupVisible]);
   return (
     <div className="relative bg-[url('/Images/Footer/detailed-room.jpg')] bg-cover bg-center w-full text-white">
       <div className="relative w-full">
@@ -26,9 +37,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-
       <hr className="w-full border-t border-gray-600 m-0 p-0" />
-
       <div className="relative w-full">
         <div className="absolute inset-0 bg-gray-800/93 z-0" />
 
@@ -125,7 +134,14 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privatsphaere-einstellungen" target="blank" className="hover:text-white transition">
+                  <Link
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleShowPopup();
+                    }}
+                    className="hover:text-white transition"
+                  >
                     Privatsphäre-Einstellungen
                   </Link>
                 </li>
@@ -163,6 +179,9 @@ export default function Footer() {
           </div>
         </footer>
       </div>
+      {/* Check if isPopupVisible is true */}
+      {isPopupVisible && <CookieBanner forceShow={isPopupVisible} onClose={() => setIsPopupVisible(false)} />}{" "}
+      {/* This should render the CookieBanner */}
     </div>
   );
 }
