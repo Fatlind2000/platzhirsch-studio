@@ -7,6 +7,8 @@ const MultiStepForm = () => {
     step2: null,
     message: "",
   });
+  const [successMessage, setSuccessMessage] = useState(""); // For success message
+  const [errorMessage, setErrorMessage] = useState(""); // For error message
 
   const step1Options = [
     { id: "einen Neubau", label: "einen Neubau" },
@@ -31,10 +33,60 @@ const MultiStepForm = () => {
     if (stepNumber === 2) setStep(3);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", selectedOptions);
-    // Add your form submission logic here
+
+    // Checking if the form data is complete
+    if (!selectedOptions.step1 || !selectedOptions.step2 || !selectedOptions.message) {
+      setErrorMessage("Bitte füllen Sie alle Felder aus.");
+      return;
+    }
+
+    const payload = {
+      bei_meiner_anfrage: selectedOptions.step1, // e.g., "einen Neubau"
+      das_projekt_soll: selectedOptions.step2, // e.g., "in einem Einfamilienhaus"
+      bitte_beschreiben: selectedOptions.message, // The user's message
+    };
+
+    console.log("Form submitted:", payload);
+
+    try {
+      const response = await fetch(
+        "http://192.168.68.197:8000/api/method/platzhirsch_studio.platzhirsch_studio.doctype.anfrage.api.create_anfrage", // API endpoint
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const responseData = await response.json();
+
+      if (!response.ok) {
+        const errorMsg = responseData.message || responseData.error || "Fehler beim Senden der Nachricht.";
+        throw new Error(errorMsg);
+      }
+
+      // Handle success response
+      setSuccessMessage("Nachricht erfolgreich gesendet!");
+      setErrorMessage(""); // Clear any error messages
+      resetForm(); // Reset form data after successful submission
+    } catch (error) {
+      setErrorMessage("Fehler beim Absenden der Nachricht. Bitte versuchen Sie es erneut.");
+      console.error("Error submitting form:", error);
+    }
+  };
+
+  const resetForm = () => {
+    // Reset the form state
+    setSelectedOptions({
+      step1: null,
+      step2: null,
+      message: "",
+    });
+    setStep(1); // Reset to the first step
   };
 
   return (
@@ -42,6 +94,12 @@ const MultiStepForm = () => {
       <h2 className="text-2xl font-bold mb-6 text-center">Anfrage</h2>
 
       <form onSubmit={handleSubmit}>
+        {/* Success message */}
+        {successMessage && <div className="text-green-500 text-center mb-4">{successMessage}</div>}
+
+        {/* Error message */}
+        {errorMessage && <div className="text-red-500 text-center mb-4">{errorMessage}</div>}
+
         {/* Step 1 */}
         {step >= 1 && (
           <div className={`mb-8 ${step > 1 ? "opacity-50" : ""}`}>
@@ -50,8 +108,8 @@ const MultiStepForm = () => {
             </h3>
             <div className="space-y-3">
               {step1Options.map((option) => (
-                <label key={option.id} className="flex justify-center items-center p-3 hover:bg-gray-50 cursor-pointer">
-                  <div className="relative flex items-center justify-center">
+                <label key={option.id} className="flex justify-start items-center p-3 hover:bg-gray-50 cursor-pointer">
+                  <div className="relative flex items-center justify-start">
                     <input
                       type="checkbox"
                       checked={selectedOptions.step1 === option.id}
@@ -79,7 +137,7 @@ const MultiStepForm = () => {
             </h3>
             <div className="space-y-3">
               {step2Options.map((option) => (
-                <label key={option.id} className="flex items-center justify-center p-3 hover:bg-gray-50 cursor-pointer">
+                <label key={option.id} className="flex items-center justify-start p-3 hover:bg-gray-50 cursor-pointer">
                   <div className="relative flex items-center justify-center">
                     <input
                       type="checkbox"
@@ -128,6 +186,7 @@ const MultiStepForm = () => {
             <button></button>
           ) : (
             <button
+              onClick={handleSubmit}
               type="submit"
               className="px-4 py-2 bg-[var(--quinary)] text-white rounded-lg hover:bg-[var(--primary)] ml-auto w-full"
             >

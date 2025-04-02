@@ -168,7 +168,7 @@ export default function Footer() {
                   placeholder="Your email"
                   className="w-full px-4 py-2 text-white text-sm  outline-none border-white"
                 />
-                <button className=" px-4 py-2  text-xs text-[#daa14c] cursor-pointer">ABONNIEREN</button>
+                <button className=" px-4 py-2  text-xs text-[var(--ternary)] cursor-pointer">ABONNIEREN</button>
               </div>
             </div>
           </div>

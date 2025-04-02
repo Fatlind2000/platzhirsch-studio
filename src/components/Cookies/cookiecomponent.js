@@ -366,13 +366,16 @@ export default function CookieBanner({ forceShow = false, onClose }) {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <input
-                    type="checkbox"
-                    checked={consent.essential}
-                    disabled
-                    className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  <span className="font-medium text-gray-900">Essential Cookies</span>
+                  <label htmlFor="essential-cookies" className="flex items-center space-x-3">
+                    <input
+                      type="checkbox"
+                      id="essential-cookies"
+                      checked={consent.essential}
+                      disabled
+                      className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="font-medium text-gray-900">Essential Cookies</span>
+                  </label>
                 </div>
               </div>
               <p className="text-sm text-gray-500 ml-8">Required for basic site functionality. Cannot be disabled.</p>
@@ -382,13 +385,16 @@ export default function CookieBanner({ forceShow = false, onClose }) {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <input
-                    type="checkbox"
-                    checked={consent.functional}
-                    onChange={() => toggleConsent("functional")}
-                    className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  <span className="font-medium text-gray-900">Functional Cookies</span>
+                  <label htmlFor="functional-cookies" className="flex items-center space-x-3">
+                    <input
+                      type="checkbox"
+                      id="functional-cookies"
+                      checked={consent.functional}
+                      onChange={() => toggleConsent("functional")}
+                      className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="font-medium text-gray-900">Functional Cookies</span>
+                  </label>
                 </div>
                 <button
                   onClick={() => toggleCategoryDetails("functional")}
@@ -405,13 +411,16 @@ export default function CookieBanner({ forceShow = false, onClose }) {
                   <div className="ml-8 space-y-2">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        <input
-                          type="checkbox"
-                          checked={consent.googleMaps}
-                          onChange={() => toggleConsent("googleMaps")}
-                          className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                        />
-                        <span className="font-medium">{cookieServices.functional.googleMaps.title}</span>
+                        <label htmlFor="google-maps" className="flex items-center space-x-3">
+                          <input
+                            type="checkbox"
+                            id="google-maps"
+                            checked={consent.googleMaps}
+                            onChange={() => toggleConsent("googleMaps")}
+                            className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                          />
+                          <span className="font-medium">{cookieServices.functional.googleMaps.title}</span>
+                        </label>
                       </div>
                       <button
                         onClick={() => toggleServiceDetails("googleMaps")}
@@ -428,13 +437,16 @@ export default function CookieBanner({ forceShow = false, onClose }) {
                   <div className="ml-8 space-y-2">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        <input
-                          type="checkbox"
-                          checked={consent.googleTagManager}
-                          onChange={() => toggleConsent("googleTagManager")}
-                          className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                        />
-                        <span className="font-medium">{cookieServices.functional.googleTagManager.title}</span>
+                        <label htmlFor="google-tag-manager" className="flex items-center space-x-3">
+                          <input
+                            type="checkbox"
+                            id="google-tag-manager"
+                            checked={consent.googleTagManager}
+                            onChange={() => toggleConsent("googleTagManager")}
+                            className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                          />
+                          <span className="font-medium">{cookieServices.functional.googleTagManager.title}</span>
+                        </label>
                       </div>
                       <button
                         onClick={() => toggleServiceDetails("googleTagManager")}
@@ -458,13 +470,16 @@ export default function CookieBanner({ forceShow = false, onClose }) {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <input
-                    type="checkbox"
-                    checked={consent.statistics}
-                    onChange={() => toggleConsent("statistics")}
-                    className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  <span className="font-medium text-gray-900">Statistics Cookies</span>
+                  <label htmlFor="statistics-cookies" className="flex items-center space-x-3">
+                    <input
+                      type="checkbox"
+                      id="statistics-cookies"
+                      checked={consent.statistics}
+                      onChange={() => toggleConsent("statistics")}
+                      className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="font-medium text-gray-900">Statistics Cookies</span>
+                  </label>
                 </div>
                 <button
                   onClick={() => toggleCategoryDetails("statistics")}
@@ -479,13 +494,16 @@ export default function CookieBanner({ forceShow = false, onClose }) {
                 <div className="ml-8 space-y-2">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <input
-                        type="checkbox"
-                        checked={consent.googleAnalytics}
-                        onChange={() => toggleConsent("googleAnalytics")}
-                        className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                      />
-                      <span className="font-medium">{cookieServices.statistics.googleAnalytics.title}</span>
+                      <label htmlFor="google-analytics" className="flex items-center space-x-3">
+                        <input
+                          type="checkbox"
+                          id="google-analytics"
+                          checked={consent.googleAnalytics}
+                          onChange={() => toggleConsent("googleAnalytics")}
+                          className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <span className="font-medium">{cookieServices.statistics.googleAnalytics.title}</span>
+                      </label>
                     </div>
                     <button
                       onClick={() => toggleServiceDetails("googleAnalytics")}
@@ -506,13 +524,16 @@ export default function CookieBanner({ forceShow = false, onClose }) {
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
-                  <input
-                    type="checkbox"
-                    checked={consent.marketing}
-                    onChange={() => toggleConsent("marketing")}
-                    className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                  />
-                  <span className="font-medium text-gray-900">Marketing Cookies</span>
+                  <label htmlFor="marketing-cookies" className="flex items-center space-x-3">
+                    <input
+                      type="checkbox"
+                      id="marketing-cookies"
+                      checked={consent.marketing}
+                      onChange={() => toggleConsent("marketing")}
+                      className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="font-medium text-gray-900">Marketing Cookies</span>
+                  </label>
                 </div>
                 <button
                   onClick={() => toggleCategoryDetails("marketing")}
@@ -527,13 +548,16 @@ export default function CookieBanner({ forceShow = false, onClose }) {
                 <div className="ml-8 space-y-2">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <input
-                        type="checkbox"
-                        checked={consent.googleAds}
-                        onChange={() => toggleConsent("googleAds")}
-                        className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                      />
-                      <span className="font-medium">{cookieServices.marketing.googleAds.title}</span>
+                      <label htmlFor="google-ads" className="flex items-center space-x-3">
+                        <input
+                          type="checkbox"
+                          id="google-ads"
+                          checked={consent.googleAds}
+                          onChange={() => toggleConsent("googleAds")}
+                          className="h-5 w-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                        />
+                        <span className="font-medium">{cookieServices.marketing.googleAds.title}</span>
+                      </label>
                     </div>
                     <button
                       onClick={() => toggleServiceDetails("googleAds")}

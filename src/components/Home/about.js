@@ -76,8 +76,7 @@ const About = () => {
               className="object-cover"
             />
           </div>
-          <div className="w-full">
-            <div className="relative h-10 w-full"></div>
+          <div className="w-full mb-10 md:mt-10">
             <div className="w-full max-w-4xl mx-auto">
               <h4 className="sm:lg md:text:xl text-5xl font-bold mb-5 text-[var(--quinary)] text-center mt-10 mb-10">
                 Unsere Mission
@@ -94,9 +93,9 @@ const About = () => {
         {/* Second Column */}
         <div className="w-full md:w-1/2 p-4 flex flex-col justify-center items-center">
           <h2 className={`text-lg mb-3 text-[var(--primary)] text-center uppercase`}>ÜBER UNS</h2>
-          <h4 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-5 mb-5">
+          <h5 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-5 mb-5">
             Ihre Vision, unser Antrieb
-          </h4>
+          </h5>
           <p className="text-center text-ms text-[var(--secondary)]">
             Platzhirsch Studio steht für kreatives Design, innovative Lösungen und maßgeschneiderte Markenstrategien.
             Wir bringen Ideen zum Leben – authentisch, modern und wirkungsvoll.

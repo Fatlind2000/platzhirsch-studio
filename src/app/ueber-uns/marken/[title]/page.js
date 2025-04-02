@@ -5,13 +5,12 @@ import SinglePageBanner from "@/components/Reusable/singlePageSlider";
 import BrandPage from "@/components/MarkenItems/markenitems";
 import MarkenItemBanner from "@/components/MarkenItems/markenItemBanner";
 
-
 function generateSlug(title) {
   return title
     .toLowerCase()
-    .replace(/\s+/g, "-") // Replace spaces with dashes
+    .replace(/\s+/g, "-")
     .replace(/\//g, "-")
-    .replace(/[ä]/g, "ae") // Replace German special characters
+    .replace(/[ä]/g, "ae")
     .replace(/[ö]/g, "oe")
     .replace(/[ü]/g, "ue")
     .replace(/[ß]/g, "ss")
