@@ -78,9 +78,9 @@ const About = () => {
           </div>
           <div className="w-full mb-10 md:mt-10">
             <div className="w-full max-w-4xl mx-auto">
-              <h4 className="sm:lg md:text:xl text-5xl font-bold mb-5 text-[var(--quinary)] text-center mt-10 mb-10">
+              <h3 className="sm:lg md:text:xl text-5xl font-bold mb-5 text-[var(--quinary)] text-center mt-10 mb-10">
                 Unsere Mission
-              </h4>
+              </h3>
               <p className="text-center text-ms text-[var(--secondary)]">
                 Bei Platzhirsch Studio streben wir danach, kreative und durchdachte Lösungen zu entwickeln, die
                 Markenidentitäten stärken und nachhaltig im Gedächtnis bleiben. Unser Ziel ist es, eine Brücke zwischen
@@ -92,10 +92,10 @@ const About = () => {
 
         {/* Second Column */}
         <div className="w-full md:w-1/2 p-4 flex flex-col justify-center items-center">
-          <h2 className={`text-lg mb-3 text-[var(--primary)] text-center uppercase`}>ÜBER UNS</h2>
-          <h5 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-5 mb-5">
+          <h2 className={`text-lg mb-3 text-[var(--secondary)] text-center uppercase`}>ÜBER UNS</h2>
+          <h3 className="sm:lg md:text:xl text-5xl font-bold mb-3 text-[var(--quinary)] text-center mt-5 mb-5">
             Ihre Vision, unser Antrieb
-          </h5>
+          </h3>
           <p className="text-center text-ms text-[var(--secondary)]">
             Platzhirsch Studio steht für kreatives Design, innovative Lösungen und maßgeschneiderte Markenstrategien.
             Wir bringen Ideen zum Leben – authentisch, modern und wirkungsvoll.
