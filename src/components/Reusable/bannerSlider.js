@@ -72,7 +72,7 @@ const ImageSlider = ({ images }) => {
         {images.map((image, index) => (
           <div key={index} className="slider-slide bg-cover bg-center w-full">
             <div
-              className="relative w-full h-200 sm:max-h-[50dvh] md:max-h-180 bg-cover bg-center"
+              className="relative w-full h-200 xs:max-h-[70dvh] sm:max-h-[70dvh] md:max-h-180 bg-cover bg-center"
               style={{ backgroundImage: `url('${image}')` }}
             >
               <div className="absolute inset-0 bg-black opacity-50"></div>

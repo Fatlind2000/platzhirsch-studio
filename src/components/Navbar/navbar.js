@@ -231,6 +231,7 @@ const Navbar = () => {
                     href="https://www.facebook.com/platzhirsch.studio/"
                     target="blank"
                     className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors"
+                    aria-label="Facebook"
                   >
                     <FiFacebook className="w-6 h-6" />
                   </a>
@@ -238,6 +239,7 @@ const Navbar = () => {
                     href="https://www.instagram.com/platzhirsch.studio/?hl=en"
                     target="blank"
                     className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors"
+                    aria-label="Instagram"
                   >
                     <FiInstagram className="w-6 h-6" />
                   </a>
@@ -245,6 +247,7 @@ const Navbar = () => {
                     href="https://www.linkedin.com/company/platzhirsch-studio"
                     target="blank"
                     className="text-[var(--primary)] hover:text-[var(--ternary)] transition-colors"
+                    aria-label="Linkedin"
                   >
                     <FaLinkedinIn className="w-6 h-6" />
                   </a>
