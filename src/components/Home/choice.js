@@ -23,7 +23,7 @@ export default function Choice() {
         <Link href={`/kontakt`}>
           <button
             target="blank"
-            className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[var(--secondary)] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[var(--primary)] transition delay-100 hover:text-white"
+            className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[var(--secondary)] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[#765119] transition delay-100 hover:text-white"
           >
             JETZT NACHRICHT SENDEN <BsArrowRight />
           </button>
