@@ -50,7 +50,7 @@ const About = () => {
   const images = [
     "/Images/Home/tuuci.png",
     "/Images/Home/heritage.png",
-    "/Images/Home/umbrosa.png ",
+    "/Images/Home/umbrosa.png",
     "/Images/Home/coppenhagen.png",
     "/Images/Home/treca.png",
     "/Images/Home/trapa.png",
