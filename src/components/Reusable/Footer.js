@@ -25,15 +25,7 @@ export default function Footer() {
     <div className="relative w-full text-white">
       {/* Background image section with Next.js Image */}
       <div className="absolute inset-0 -z-10 h-full w-full">
-        <Image
-          src={detailedRoom}
-          alt="Detailed room background"
-          placeholder="blur"
-          quality={85}
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-        />
+        <Image src={detailedRoom} alt="Detailed room background" fill className="object-cover object-center" />
         <div className="absolute inset-0 bg-gray-800/75" />
       </div>
 
