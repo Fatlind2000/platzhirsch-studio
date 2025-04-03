@@ -363,7 +363,7 @@ export default function CookieBanner({ forceShow = false, onClose }) {
           {/* Header - Updated layout */}
           <div className="p-6 border-b border-gray-200 flex justify-between flex-col-reverse items-start md:flex-row relative">
             <div className="w-[100%] flex-1 md:w-[60%]">
-              <p className="text-gray-600  text-sm">
+              <p className="text-gray-600 text-sm">
                 Wir verwenden Cookies und ähnliche Technologien auf unserer Website und verarbeiten personenbezogene
                 Daten über Sie, wie Ihre IP-Adresse. Wir teilen diese Daten auch mit Dritten. Die Datenverarbeitung kann
                 mit Ihrer Einwilligung oder auf der Grundlage eines berechtigten Interesses erfolgen, dem Sie

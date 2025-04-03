@@ -7,44 +7,58 @@ import { FiPhoneCall } from "react-icons/fi";
 import { BsArrowRight } from "react-icons/bs";
 import Image from "next/image";
 import footerimg from "../../../public/Images/Footer/PlatzImage.png";
-import CookieBanner from "../Cookies/cookiecomponent"; // Import the CookiePopup component
+import detailedRoom from "../../../public/Images/Footer/detailed-room.jpg";
+import CookieBanner from "../Cookies/cookiecomponent";
 
 export default function Footer() {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const handleShowPopup = () => {
-    setIsPopupVisible(true); // Show the popup
+    setIsPopupVisible(true);
   };
+
   useEffect(() => {
     console.log("Popup visibility changed:", isPopupVisible);
   }, [isPopupVisible]);
+
   return (
-    <div className="relative bg-[url('/Images/Footer/detailed-room.jpg')] bg-cover bg-center w-full text-white">
-      <div className="relative w-full">
-        <div className="absolute inset-0 bg-gray-800/75 z-0" />
-        <div className="relative z-10 py-16 px-6 text-center max-w-3xl mx-auto">
+    <div className="relative w-full text-white">
+      {/* Background image section with Next.js Image */}
+      <div className="absolute inset-0 -z-10 h-full w-full">
+        <Image
+          src={detailedRoom}
+          alt="Detailed room background"
+          placeholder="blur"
+          quality={85}
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gray-800/75" />
+      </div>
+
+      {/* Content section */}
+      <div className="relative z-10">
+        <div className="py-16 px-6 text-center max-w-3xl mx-auto">
           <h1 className="text-base mb-4 text-[#daa14c] tracking-[0.7] font-semibold">LASSEN SIE SICH INSPIRIEREN</h1>
           <p className="mb-12 font-bold text-4xl md:text-5xl leading-tight tracking-normal">
             Neuigkeiten & Aktionen direkt in Ihr Postfach.
           </p>
           <Link href="/kontakt" target="blank">
-            <button
-              target="blank"
-              className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[#765119] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[#765119] transition delay-150 hover:text-white"
-            >
+            <button className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[#765119] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[#765119] transition delay-150 hover:text-white">
               JETZT NACHRICHT SENDEN <BsArrowRight />
             </button>
           </Link>
         </div>
       </div>
-      <hr className="w-full border-t border-gray-600 m-0 p-0" />
-      <div className="relative w-full">
-        <div className="absolute inset-0 bg-gray-800/93 z-0" />
 
-        <footer className="relative z-10 w-full py-8 px-8 md:px-24">
+      <hr className="w-full border-t border-gray-600 m-0 p-0" />
+
+      <div className="relative w-full bg-gray-800/93">
+        <footer className="w-full py-8 px-8 md:px-24">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
             <div>
-              <Image src={footerimg} alt="Logo" width={50} height={25} />
+              <Image src={footerimg} alt="Platzhirsch Logo" width={50} height={25} quality={90} placeholder="blur" />
               <h2 className="text-base font-bold text-[#daa14c] mb-4 mt-4">PLATZHIRSCH HOME LIVING</h2>
 
               <div className="flex items-center gap-3 mb-4 text-[#daa14c]">

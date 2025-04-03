@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
+import Image from "next/image";
 
 import { BsArrowRight } from "react-icons/bs";
 
@@ -83,33 +84,37 @@ const ImageSlider = () => {
   return (
     <div className="slider-container w-full h-dvh md:h-180">
       <Slider {...settings} beforeChange={(current, next) => setCurrentSlide(next)}>
-        {/* Slide 1 */}
         {SliderData.map((item, index) => (
-          <div key={index} className="slider-slide bg-cover bg-center w-full h-dvh md:h-180 ">
-            <div
-              className="relative w-full h-dvh md:h-210  bg-cover bg-center"
-              style={{ backgroundImage: `url(${item.img})` }}
-            >
-              {/* Veil (Darker Overlay) */}
-              <div className="absolute inset-0 bg-black opacity-65"></div>
+          <div key={index} className="slider-slide w-full h-dvh md:h-180 relative">
+            {/* Next.js Image component with priority for first slide */}
+            <div className="absolute inset-0 w-full h-full">
+              <Image
+                src={item.img}
+                alt={item.title}
+                fill
+                priority={index === 0} // Only priority for first image
+                quality={85}
+                sizes="100vw"
+                className="object-cover object-center"
+              />
+            </div>
 
-              {/* Content (Text & Button) */}
-              <div className="relative flex justify-center items-center flex-col h-dvh md:h-210 w-full p-5 text-center">
-                <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[800px] xl:text-7xl">
-                  {item.title}
-                </h1>
-                <p className="text-white text-md md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px] mb-4">
-                  {item.description}
-                </p>
-                <Link href={`/marken/${item.title.toLowerCase()}`}>
-                  <button
-                    target="blank"
-                    className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[#765119] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[#765119] transition delay-150 hover:text-white"
-                  >
-                    JETZT NACHRICHT SENDEN <BsArrowRight />
-                  </button>
-                </Link>
-              </div>
+            {/* Veil (Darker Overlay) */}
+            <div className="absolute inset-0 bg-black opacity-65"></div>
+
+            {/* Content (Text & Button) */}
+            <div className="relative flex justify-center items-center flex-col h-dvh md:h-210 w-full p-5 text-center">
+              <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl lg:max-w-[800px] xl:text-7xl">
+                {item.title}
+              </h1>
+              <p className="text-white text-md md:text-xl mt-5 mx-auto max-w-full md:max-w-[800px] lg:max-w-[1000px] mb-4">
+                {item.description}
+              </p>
+              <Link href={`/marken/${item.title.toLowerCase()}`}>
+                <button className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[#765119] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[#765119] transition delay-150 hover:text-white">
+                  JETZT NACHRICHT SENDEN <BsArrowRight />
+                </button>
+              </Link>
             </div>
           </div>
         ))}
