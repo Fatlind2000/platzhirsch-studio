@@ -358,8 +358,8 @@ export default function CookieBanner({ forceShow = false, onClose }) {
     <>
       <div className="fixed inset-0 bg-black/40 z-40 backdrop-blur-sm" />
       <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
-        <div className="w-[900px] max-w-[90vw] h-[90vh] bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col pointer-events-auto overflow-y-auto">
-          <h2 className="text-2xl font-bold text-gray-800 p-6 pb-0">Cookie Settings</h2>
+        <div className="w-[900px] max-w-[90vw] max-h-[90vh] bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col pointer-events-auto overflow-y-auto relative h-auto">
+          <h2 className="text-2xl font-bold text-gray-800 p-6 pb-0">Individuelle Privatsphäre-Präferenzen</h2>
           {/* Header - Updated layout */}
           <div className="p-6 border-b border-gray-200 flex justify-between flex-col-reverse items-start md:flex-row relative">
             <div className="w-[100%] flex-1 md:w-[60%]">
@@ -379,19 +379,19 @@ export default function CookieBanner({ forceShow = false, onClose }) {
                 onClick={handleAcceptAll}
                 className="px-4 py-2 text-white bg-[var(--primary)]/90 rounded-lg hover:bg-[var(--primary)] transition-colors text-sm whitespace-nowrap"
               >
-                Accept All
+                Alle akzeptieren
               </button>
               <button
                 onClick={handleAcceptSelected}
                 className="px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm whitespace-nowrap"
               >
-                Accept Selected
+                Weiter ohne Einwilligung
               </button>
               <button
                 onClick={handleRejectAll}
                 className="px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm whitespace-nowrap"
               >
-                Reject All
+                Individuelle Privatsphäre-Präferenzen
               </button>
             </div>
           </div>
@@ -408,7 +408,7 @@ export default function CookieBanner({ forceShow = false, onClose }) {
           </p>
           <div className="mt-3">
             <p
-              className={`text-center text-sm  ${isShown && `hidden`} md:hidden pb-4 `}
+              className={`text-center text-sm text-[var(--secondry)]/80  ${isShown && `hidden`} md:hidden pb-4 `}
               onClick={() => setIsShown(!isShown)}
             >
               Individuelle Privatsphäre-Präferenzen

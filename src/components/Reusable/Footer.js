@@ -183,7 +183,7 @@ export default function Footer() {
         </footer>
       </div>
       {/* Check if isPopupVisible is true */}
-      {isPopupVisible && <CookieBanner forceShow={isPopupVisible} onClose={() => setIsPopupVisible(false)} />}{" "}
+      {isPopupVisible && <CookieBanner forceShow={isPopupVisible} onClose={() => setIsPopupVisible(false)} />}
       {/* This should render the CookieBanner */}
     </div>
   );
