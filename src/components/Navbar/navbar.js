@@ -149,6 +149,7 @@ const Navbar = () => {
               <button
                 onClick={() => setShowStudioInfo(!showStudioInfo)}
                 className="text-[var(--ternary)] hover:cursor-pointer hover:text-[var(--primary)] transition uppercase text-2xl cursor:pointer"
+                aria-label="Page Info"
               >
                 <FiMenu />
               </button>
