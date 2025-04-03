@@ -21,9 +21,24 @@ body {
 }
 
 :root {
+  --background: #ffffff;
+  --foreground: #171717;
   --primary: #daa14c;
   --secondary: #30373e;
   --ternary: #ffffff;
   --quaternary: #000000;
-  --quinary: #303030
+  --quinary: #303030;
+
+  --font-geist-sans: 'Geist', sans-serif;
+  --font-geist-mono: 'Geist Mono', monospace;
+}
+
+@font-face {
+  font-family: 'Pacifico';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Pacifico Regular'), local('Pacifico-Regular'),
+    url(https://fonts.gstatic.com/s/pacifico/v12/FwZY7-Qmy14u9lezJ-6H6MmBp0u-.woff2) format('woff2');
+  font-display: swap;
+  /* Ensures font is swapped during loading */
 }

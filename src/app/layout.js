@@ -5,14 +5,17 @@ import BeforeFooter from "@/components/Reusable/Footer.js";
 import CookieComponent from "@/components/Cookies/cookiecomponent";
 import dynamic from "next/dynamic";
 
+// Include font-display swap in font imports
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap", // Ensures font is swapped during loading
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap", // Ensures font is swapped during loading
 });
 
 export const metadata = {
