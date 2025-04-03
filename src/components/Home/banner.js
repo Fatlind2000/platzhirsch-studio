@@ -104,7 +104,7 @@ const ImageSlider = () => {
                 <Link href={`/marken/${item.title.toLowerCase()}`}>
                   <button
                     target="blank"
-                    className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[var(--primary)]/90 text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[var(--primary)] transition delay-150 hover:text-white"
+                    className="mx-auto inline-flex items-center gap-2 justify-center text-sm bg-[#765119] text-white font-bold cursor-pointer px-8 py-3 rounded-full hover:bg-[#c88f3f] transition delay-150 hover:text-white"
                   >
                     JETZT NACHRICHT SENDEN <BsArrowRight />
                   </button>

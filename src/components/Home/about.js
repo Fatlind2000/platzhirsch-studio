@@ -78,9 +78,9 @@ const About = () => {
           </div>
           <div className="w-full mb-10 md:mt-10">
             <div className="w-full max-w-4xl mx-auto">
-              <h4 className="sm:lg md:text:xl text-5xl font-bold mb-5 text-[var(--quinary)] text-center mt-10 mb-10">
+              <h2 className="sm:lg md:text:xl text-5xl font-bold mb-5 text-[var(--quinary)] text-center mt-10 mb-10">
                 Unsere Mission
-              </h4>
+              </h2>
               <p className="text-center text-ms text-[var(--secondary)]">
                 Bei Platzhirsch Studio streben wir danach, kreative und durchdachte Lösungen zu entwickeln, die
                 Markenidentitäten stärken und nachhaltig im Gedächtnis bleiben. Unser Ziel ist es, eine Brücke zwischen
