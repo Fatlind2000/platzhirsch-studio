@@ -93,6 +93,7 @@ const ImageSlider = () => {
                 alt={item.title}
                 priority={index === 0} // Only priority for first image
                 fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="object-cover object-center"
               />
             </div>
