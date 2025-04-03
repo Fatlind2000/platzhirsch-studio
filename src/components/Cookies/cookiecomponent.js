@@ -653,9 +653,9 @@ export default function CookieBanner({ forceShow = false, onClose }) {
           </div>
           <div className="border-t border-gray-200 bg-gray-50 p-2 sticky bottom-0">
             <p className="text-center text-sm text-gray-600 gap-1 flex justify-center items-center">
-              <Link href={"/"}>Datenschutzerklärung</Link>
+              <Link href={"/datenschutz"}>Datenschutzerklärung</Link>
               <GoDotFill />
-              <Link href={"/"}>Impressum</Link>
+              <Link href={"/impressum"}>Impressum</Link>
             </p>
           </div>
         </div>
