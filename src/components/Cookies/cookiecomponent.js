@@ -377,7 +377,7 @@ export default function CookieBanner({ forceShow = false, onClose }) {
             <div className={`flex flex-col space-y-3 w-[100%] md:w-[40%] md:ml-4 transition-all duration-200 mb-4`}>
               <button
                 onClick={handleAcceptAll}
-                className="px-4 py-2 text-white bg-[var(--primary)]/90 rounded-lg hover:bg-[var(--primary)] transition-colors text-sm whitespace-nowrap"
+                className="px-4 py-2 text-white bg-[#765119]/90 rounded-lg hover:bg-[#765119] transition-colors text-sm whitespace-nowrap"
               >
                 Alle akzeptieren
               </button>
